@@ -123,7 +123,7 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item ">
+                    <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }} ">
                         <a href="{{ route('dashboard') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
@@ -163,8 +163,7 @@
                     </li>
                     <li class="menu-item {{ Route::is('products.*') ? 'active open' : ''}}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <iconify-icon icon="basil:key-outline" width="24" height="24"></iconify-icon>
-                        &nbsp; &nbsp;
+                            <iconify-icon icon="ant-design:product-outlined" width="24" height="24"></iconify-icon> &nbsp; &nbsp;
                             <div data-i18n="Layouts">Products</div>
                         </a>
 
@@ -177,6 +176,37 @@
                             <li class="menu-item {{ Route::is('products.product.list') ? 'active open' : '' }} ">
                                 <a href="{{ route('products.product.list') }}" class="menu-link">
                                     <div data-i18n="Without menu">Product List</div>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li class="menu-item {{ Route::is('orm.*') ? 'active open' : ''}}  ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <iconify-icon icon="tabler:circles-relation" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
+                            <div data-i18n="Layouts">Relation</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ Route::is('orm.oto.relation') ? 'active open' : '' }} ">
+                                <a href="{{ route('orm.oto.relation') }}" class="menu-link">
+                                    <div data-i18n="Without menu">OTO</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ Route::is('orm.otm.relation') ? 'active open' : '' }} ">
+                                <a href="{{ route('orm.otm.relation') }}" class="menu-link">
+                                    <div data-i18n="Without menu">OTM</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ Route::is('orm.mtm.relation') ? 'active open' : '' }} ">
+                                <a href="{{ route('orm.mtm.relation') }}" class="menu-link">
+                                    <div data-i18n="Without menu">MTM</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ Route::is('orm.hot.relation') ? 'active open' : '' }} ">
+                                <a href="{{ route('orm.hot.relation') }}" class="menu-link">
+                                    <div data-i18n="Without menu">HOT</div>
                                 </a>
                             </li>
 

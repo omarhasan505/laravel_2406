@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Backend\Product\ProductController;
+use App\Http\Controllers\Backend\Relation\RelationController;
 use App\Http\Controllers\Backend\RolePermission\RolePermissionController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -22,7 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::prefix('/rolePermission')->name('rolePermission.')->middleware(['auth' ,'verified',])->group(function(){
+
+//*  BACKEND PART
+
+Route::prefix('/dashboard/rolePermission')->name('rolePermission.')->middleware(['auth' ,'verified',])->group(function(){
     Route::get('/createUser' , [RolePermissionController::class, 'createUser'])->name('create.user');
     Route::post('/createUser' , [RolePermissionController::class, 'storeUser'])->name('store.user');
     Route::get('/userlist' , [RolePermissionController::class, 'listUser'])->name('list.user');
@@ -39,7 +45,7 @@ Route::prefix('/rolePermission')->name('rolePermission.')->middleware(['auth' ,'
     Route::post('/permissionList' , [RolePermissionController::class, 'permissionListStore'])->name('user.permission.store');
 });
 
-Route::prefix('/products')->name('products.')->middleware(['auth', 'verified',])->group(
+Route::prefix('/dashboard/products')->name('products.')->middleware(['auth', 'verified',])->group(
     function () {
 
     Route::get('/addProduct' , [ProductController::class , 'storeProduct'])->name('product.store');
@@ -72,6 +78,21 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/password', [ProfileController::class, 'updatePassword'])
         ->name('profile.update.password');
 });
+
+Route::prefix('/dashboard/orm')->name('orm.')->middleware(['auth' , 'verified'])->group(function(){
+
+    Route::get('/oneToOne' , [RelationController::class , 'index'])->name('oto.relation');
+    Route::get('/oneToMany' , [RelationController::class , 'indexMany'])->name('otm.relation');
+    Route::get('/manyToMany' , [RelationController::class , 'manyToMany'])->name('mtm.relation');
+    Route::get('/hasOneThrough' , [RelationController::class , 'hasOneThrough'])->name('hot.relation');
+
+});
+
+
+
+
+//* FORNTEND PART
+
 
 
 

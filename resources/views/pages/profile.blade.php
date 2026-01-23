@@ -15,23 +15,36 @@
         <h5 class="card-header">Profile Picture</h5>
         <div class="card-body d-flex align-items-center gap-4">
 
-                <img id="user_image"
-                    src="{{ asset('storage/' . auth()->user()->avatar) }}"
-                    class="rounded"
-                    width="120"/>
-
 
 
 
             <form action="{{ route('profile.update.avatar') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mb-3">
 
-                     <input required  class="form-control" name="avatar" accept="image/*" type='file' id="imgInp" />
+
+
+                @csrf
+
+               <div class="row">
+                 <div class=" col-md-3 position-relative">
+                    <label for="imgInp">
+
+                        <span class="remove" style="position: absolute; right:92px; top:-13px; display:none; line-height:0; justify-content:center;     align-item: center; padding:4px; border:2px solid rgba(255, 0, 0, 0.638); color:rgba(255, 0, 0, 0.638); border-radius: 10px; cursor: pointer; " >
+                                    <iconify-icon icon="pajamas:remove" width="16" height="16"></iconify-icon>
+                                </span>
+
+                        <img id="user_image"
+                            src="{{ asset('storage/' . auth()->user()->avatar) }}"
+                            class="rounded"
+                            width="120"/>
+                    </label>
                 </div>
-                <button class="btn btn-primary">
-                    <i class="bx bx-upload me-1"></i> Upload
-                </button>
+                <div class="col-md-9 d-flex flex-column flex-wrap justify-content-center">
+                     <input required  class="form-control" name="avatar" accept="image/*" type='file' id="imgInp" />
+                     <button class="btn btn-primary w-50 mt-4">
+                         <i class="bx bx-upload  me-1"></i> Upload
+                        </button>
+                    </div>
+               </div>
             </form>
 
         </div>
@@ -130,13 +143,13 @@
       const [file] = imgInp.files
       if (file) {
         user_image.src = URL.createObjectURL(file);
-        // $('.remove').show();
+        $('.remove').show();
       }
     };
-//     $('.remove').on('click', function(){
-// $('#user_image').attr('src' , defaultImage);
-// $('.remove').hide();
-//     });
+    $('.remove').on('click', function(){
+$('#user_image').attr('src' , defaultImage);
+$('.remove').hide();
+    });
 
 </script>
 

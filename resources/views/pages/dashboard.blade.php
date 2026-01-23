@@ -42,6 +42,9 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
+
+    @stack('backend_css')
+
     <link rel="stylesheet" href="{{asset('backend/assets/vendor/fonts/boxicons.css')}}" />
     <link rel="stylesheet" href="{{asset('backend/assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
     <link rel="stylesheet" href="{{asset('backend/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
@@ -182,6 +185,23 @@
 
                         </ul>
                     </li>
+                    <li class="menu-item {{ Route::is('category.*') ? 'active open' : ''}}  ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                           <iconify-icon icon="material-symbols:category-search-outline-rounded" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
+                            <div data-i18n="Layouts">Categories</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ Route::is('category.select.category') ? 'active open' : '' }} ">
+                                <a href="{{ route('category.select.category') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Select Category</div>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
                     <li class="menu-item {{ Route::is('orm.*') ? 'active open' : ''}}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="tabler:circles-relation" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
@@ -213,6 +233,7 @@
 
                         </ul>
                     </li>
+
                 </ul>
             </aside>
             <!-- / Menu -->
@@ -246,21 +267,13 @@
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-3">
-                                <a
-                                    class="github-button"
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                    data-icon="octicon-star"
-                                    data-size="large"
-                                    data-show-count="true"
-                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-                            </li>
+
 
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="{{ asset('backend/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                                        <img src=" {{ Auth::User()->avatar ?  asset('storage/' . auth()->user()->avatar) : 'https://api.dicebear.com/9.x/initials/svg?seed=user' }}" alt class="w-px-40 h-40 rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -269,7 +282,7 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{ asset('backend/assets/img/avatars/1.png') }}" alt class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="{{ Auth::User()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://api.dicebear.com/9.x/initials/svg?seed=user' . urlencode(Auth::user()->name) }}" alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
@@ -288,21 +301,7 @@
                                             <span class="align-middle">My Profile</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="d-flex align-items-center align-middle">
-                                                <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                                                <span class="flex-grow-1 align-middle">Billing</span>
-                                                <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                                            </span>
-                                        </a>
-                                    </li>
+
                                     <li>
                                         <div class="dropdown-divider"></div>
                                     </li>

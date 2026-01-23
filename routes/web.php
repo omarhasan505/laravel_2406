@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\Backend\Category\CategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Relation\RelationController;
 use App\Http\Controllers\Backend\RolePermission\RolePermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -55,10 +58,7 @@ Route::prefix('/dashboard/products')->name('products.')->middleware(['auth', 've
     Route::put('/editProduct/{id}' , [ProductController::class , 'storeEditProduct'])->name('store.product.edit');
     Route::get('/deleteProduct/{id}' , [ProductController::class , 'deleteProduct'])->name('product.delete');
 
-    });
-
-
-
+});
 
 Route::middleware(['auth'])->group(function () {
 
@@ -81,10 +81,23 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('/dashboard/orm')->name('orm.')->middleware(['auth' , 'verified'])->group(function(){
 
+
+
+
+
+
     Route::get('/oneToOne' , [RelationController::class , 'index'])->name('oto.relation');
     Route::get('/oneToMany' , [RelationController::class , 'indexMany'])->name('otm.relation');
     Route::get('/manyToMany' , [RelationController::class , 'manyToMany'])->name('mtm.relation');
     Route::get('/hasOneThrough' , [RelationController::class , 'hasOneThrough'])->name('hot.relation');
+
+});
+
+Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 'verified'])->group(function(){
+
+    Route::get('/selectCategory' , [CategoryController::class , 'categoryIndex'])->name('select.category');
+    Route::post('/storeCategory' , [CategoryController::class , 'categoryStore'])->name('store.category');
+
 
 });
 

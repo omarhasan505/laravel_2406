@@ -197,6 +197,11 @@
                                     <div data-i18n="Without menu">Select Category</div>
                                 </a>
                             </li>
+                            <li class="menu-item {{ Route::is('category.list.category') ? 'active open' : '' }} ">
+                                <a href="{{ route('category.list.category') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Category List</div>
+                                </a>
+                            </li>
 
 
 

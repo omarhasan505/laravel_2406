@@ -97,6 +97,10 @@ Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 
 
     Route::get('/selectCategory' , [CategoryController::class , 'categoryIndex'])->name('select.category');
     Route::post('/storeCategory' , [CategoryController::class , 'categoryStore'])->name('store.category');
+    Route::get('/categoryList' , [CategoryController::class , 'categorylist'])->name('list.category');
+    Route::get('/categoryEdit/{id}' , [CategoryController::class , 'categoryEdit'])->name('edit.category');
+    Route::put('/storeEditCategory/{id}' , [CategoryController::class , 'storeEditCategory'])->name('store.edit.category');
+    Route::get('/categoryDelete/{id}' , [CategoryController::class , 'categoryDelete'])->name('delete.category');
 
 
 });

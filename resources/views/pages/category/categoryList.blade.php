@@ -34,7 +34,7 @@
                         {{ $category->status == 1 ? 'active' : 'inacitve' }}
                     </td>
                     <td>
-                        {{ $category->meta_title }}
+                        {{ $category->meta_title ? $category->meta_title : '---' }}
                     </td>
                      <td>
                         {{ $category->parent_id ? $category->parent_id : ' parent '  }}

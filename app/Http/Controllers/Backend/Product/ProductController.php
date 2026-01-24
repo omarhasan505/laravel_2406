@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
 use App\Models\Product\Product;
 use Illuminate\Http\Request;
 use SweetAlert2\Laravel\Swal;
@@ -12,7 +13,10 @@ class ProductController extends Controller
     //* Store Product
     public function storeProduct(){
 
-      return view('pages.products.productStore');
+        $allCategory = Category::select('id', 'title')->get();
+
+
+      return view('pages.products.productStore' , compact('allCategory'));
 
     }
 
@@ -23,14 +27,21 @@ class ProductController extends Controller
         $request -> validate([
 
             'name' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'category' => 'required',
+            'stock' => 'required',
+            'status' => 'required',
+
 
             ],
                 [
                     'name.required' => 'Please enter the product name',
                     'price.required' => 'Please enter the  product price',
+                    'category.required' => 'Please enter the  category ',
+                    'status.required' => 'Please enter the stock ',
+                    'stock.required' => 'Please enter the status ',
 
-                ]
+            ]
 
             );
 
@@ -38,14 +49,20 @@ class ProductController extends Controller
         $product = new Product();
 
         $product -> title = $request->name ;
+        $product -> category_id = $request->category ;
         $product -> price = $request->price;
+        $product ->discount_price = $request->discount_price;
+        $product ->in_stock = $request->stock;
+        $product ->status = $request->status;
+        $product ->description = $request->description;
+        $product ->feature = $request->feature;
         $product ->save();
 
         // Swal::success([
         //     'title' => 'Product Stored Successfully!',
         // ]);
 
-        return back()->with('success' , 'Product Stored Successfully!');
+        return redirect()->route('products.product.list')->with('success' , 'Product Stored Successfully!');
     }
 
     //* Product list
@@ -68,12 +85,14 @@ class ProductController extends Controller
 
         $request -> validate([
             'name' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'category' => 'required'
 
             ],
             [
                 'name.required' => 'Please enter the product name',
                 'price.required' => 'Please enter the  product price',
+                'category.required' => 'Please enter the  category ',
 
             ]
             );

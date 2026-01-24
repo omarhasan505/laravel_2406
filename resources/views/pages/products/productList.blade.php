@@ -21,6 +21,18 @@
                     Price
                 </th>
                 <th>
+                    Discount Price
+                </th>
+                <th>
+                    Stock
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
                     Action
                 </th>
             </tr>
@@ -37,8 +49,20 @@
                     {{ $product->price }}
                 </td>
                 <td>
-                    <a href="{{ route('products.product.edit' , $product->id) }}" class="btn btn-primary btn-sm mx-1 ">Edit</a>
-                    <a href="{{ route('products.product.delete' , $product->id) }}" class="btn btn-danger btn-sm mx-1 ">Delete</a>
+                    {{ $product->discount_price }}
+                </td>
+                <td class="{{ $product->in_stock == 1 ? 'text-success' : 'text-danger' }}">
+                    {{ $product->in_stock ? 'In Stock' : 'out of Stock' }}
+                </td>
+                <td class="{{ $product->status == 1 ? 'text-success' : 'text-danger' }}">
+                    {{ $product->status ? 'Active' : 'Inactive' }}
+                </td>
+                <td class="text-primary">
+                    {{ $product->category_id }}
+                </td>
+                <td class="d-flex justify-content-between ">
+                    <a href="{{ route('products.product.edit' , $product->id) }}" class="text-primary  p-2 d-flex align-items-center"><iconify-icon icon="cuida:edit-outline" width="24" height="24"></iconify-icon></a>
+                    <a href="{{ route('products.product.delete' , $product->id) }}" class="text-danger  p-2 d-flex align-items-center"><iconify-icon icon="mingcute:delete-line" width="24" height="24"></iconify-icon></a>
                 </td>
                </tr>
 

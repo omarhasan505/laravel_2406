@@ -181,6 +181,11 @@
                                     <div data-i18n="Without menu">Product List</div>
                                 </a>
                             </li>
+                            <li class="menu-item {{ Route::is('products.product.image') ? 'active open' : '' }} ">
+                                <a href="{{ route('products.product.image') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Product Image</div>
+                                </a>
+                            </li>
 
 
                         </ul>
@@ -194,7 +199,7 @@
                         <ul class="menu-sub">
                             <li class="menu-item {{ Route::is('category.select.category') ? 'active open' : '' }} ">
                                 <a href="{{ route('category.select.category') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Select Category</div>
+                                    <div data-i18n="Without menu">Add Category</div>
                                 </a>
                             </li>
                             <li class="menu-item {{ Route::is('category.list.category') ? 'active open' : '' }} ">

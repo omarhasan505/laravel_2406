@@ -76,31 +76,45 @@ class ProductController extends Controller
     //* Edit Product
     public function editProduct($id){
         $newProduct = Product::find($id);
-        return view('pages.products.editProduct' , compact('newProduct'));
+        $allCategory = Category::select('id', 'title')->get();
+
+        return view('pages.products.editProduct' , compact('newProduct' , 'allCategory'));
     }
 
     //* Store Edit Product
+
     public function storeEditProduct(Request $request , $id){
 
 
+
         $request -> validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'category' => 'required'
+                'name' => 'required',
+                'price' => 'required|numeric',
+                'category' => 'required',
+                'stock' => 'required',
+                'status' => 'required',
 
             ],
             [
                 'name.required' => 'Please enter the product name',
-                'price.required' => 'Please enter the  product price',
-                'category.required' => 'Please enter the  category ',
+                'price.required' => 'Please enter the product price',
+                'category.required' => 'Please enter the category ',
+                'stock.required' => 'Please enter the stock ',
+                'status.required' => 'Please enter the status ',
 
             ]
             );
 
                 $new = Product::find($request->id);
-                $new -> title = $request->name;
-                $new -> price = $request->price;
-                $new -> save();
+                $new->title = $request->name;
+                $new->category_id = $request->category;
+                $new->discount_price = $request->discount_price;
+                $new->price = $request->price;
+                $new->status = $request->status;
+                $new->in_stock = $request->stock;
+                $new->feature = $request->feature;
+                $new->description = $request->description;
+                $new->save();
 
             return redirect()->route('products.product.list')->with('success' , 'Updated Successfully!');
 
@@ -116,4 +130,14 @@ class ProductController extends Controller
     return back()->with('success' , 'Deleted Successfully!');
 
     }
+
+    //* Product image
+
+    public function productImage()
+        {
+        $allCategory = Category::select('id', 'title')->get();
+
+        return view('pages.products.productImage' , compact('allCategory'));
+        }
+
 }

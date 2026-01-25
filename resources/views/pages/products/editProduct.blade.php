@@ -18,13 +18,14 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('products.product.list.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('products.store.product.edit' , $newProduct->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="row">
 
                           <div class="col-lg-6">
                               <label for="name">Product name:</label>
-                            <input type="text" class="form-control mb-2" name="name"  id="name">
+                            <input type="text" class="form-control mb-2" name="name"  id="name" value="{{ $newProduct->title }}">
                             @error('name')
                              <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -36,11 +37,11 @@
 
                              <select id="category" class="js-example-basic-single form-control mb-2" name="category" >
                                 <option value="" selected disabled>--Select Category</option>
-                                {{-- @foreach ($allCategory as $category)
+                                @foreach ($allCategory as $category)
 
-                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                 <option {{ $newProduct->category_id == $category->id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->title }}</option>
 
-                                 @endforeach --}}
+                                 @endforeach
                                 </select>
 
                             @error('category')
@@ -52,7 +53,7 @@
 
                             <div class="col-lg-3">
                                 <label for="price">Product price:</label>
-                            <input type="number" class="form-control mb-2" name="price" id="price" >
+                            <input type="number" class="form-control mb-2" name="price" id="price"  value="{{ $newProduct->price }}">
                              @error('price')
                              <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -60,7 +61,7 @@
 
                             <div class="col-lg-3">
                                 <label for="discount_price">Discount price:</label>
-                            <input type="number" class="form-control mb-2" name="discount_price" id="discount_price" >
+                            <input type="number" class="form-control mb-2" name="discount_price" id="discount_price"  value="{{ $newProduct->discount_price }}" >
                              @error('discount_price')
                              <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -70,8 +71,8 @@
                                 <label for="stock">Stock:</label>
                                 <select name="stock" id="stock" class="form-control  mb-2">
                                     <option value="" selected disabled>-- Select Stock --</option>
-                                    <option value="1">In Stock</option>
-                                    <option value="0">Out of Stock</option>
+                                    <option {{ $newProduct->in_stock == 1 ? 'selected' : '' }} value="1">In Stock</option>
+                                    <option  {{ $newProduct->in_stock == 0 ? 'selected' : '' }} value="0">Out of Stock</option>
                                 </select>
                                  @error('stock')
                              <div class="alert alert-danger">{{ $message }}</div>
@@ -82,8 +83,8 @@
                                 <label for="status">Status:</label>
                                 <select name="status" id="status" class="form-control  mb-2">
                                     <option value="" selected disabled>-- Select Status --</option>
-                                    <option value="1">Active</option>
-                                    <option value="0">Inactive</option>
+                                    <option {{ $newProduct->status == 1 ? 'selected' : '' }} value="1">Active</option>
+                                    <option {{ $newProduct->status == 0 ? 'selected' : '' }} value="0">Inactive</option>
                                 </select>
                                  @error('status')
                              <div class="alert alert-danger">{{ $message }}</div>
@@ -95,7 +96,7 @@
                                 <div id="div_editor1" >
                                     <p>This is a default toolbar demo of Rich text editor.</p>
                                 </div>
-                                <textarea hidden name="description" id="description" ></textarea>
+                                <textarea hidden name="description" id="description" >{{ $newProduct->description }}</textarea>
                             </div>
 
                             <div class="col-lg-12 mb-3">
@@ -104,10 +105,10 @@
 
                                     <p>This is a default toolbar demo of Rich text editor.</p>
                                 </div>
-                                <textarea hidden name="feature" id="feature" ></textarea>
+                                <textarea hidden name="feature" id="feature" >{{ $newProduct->feature }}</textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary p-2 mt-3 w-100">Store</button>
+                            <button type="submit" class="btn btn-primary p-2 mt-3 w-100">Update</button>
                             </div>
                         </form>
                     </div>

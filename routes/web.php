@@ -59,6 +59,10 @@ Route::prefix('/dashboard/products')->name('products.')->middleware(['auth', 've
     Route::get('/deleteProduct/{id}' , [ProductController::class , 'deleteProduct'])->name('product.delete');
     Route::get('/productImage' , [ProductController::class , 'productImage'])->name('product.image');
     Route::post('/storeProductImage' , [ProductController::class , 'storeProductImage'])->name('store.product.image');
+    Route::get('/showProductImage' , [ProductController::class , 'showProductImage'])->name('show.product.image');
+    Route::get('/editProductImage/{id}' , [ProductController::class , 'editProductImage'])->name('edit.product.image');
+    Route::put('/updateProductImage/{id}' , [ProductController::class , 'updateProductImage'])->name('update.product.image');
+    Route::get('/deleteProductImage/{id}' , [ProductController::class , 'deleteProductImage'])->name('delete.product.image');
 
 });
 

@@ -183,7 +183,12 @@
                             </li>
                             <li class="menu-item {{ Route::is('products.product.image') ? 'active open' : '' }} ">
                                 <a href="{{ route('products.product.image') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Product Image</div>
+                                    <div data-i18n="Without menu">Add Product Image</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ Route::is('products.show.product.image') ? 'active open' : '' }} ">
+                                <a href="{{ route('products.show.product.image') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Show Product Image</div>
                                 </a>
                             </li>
 

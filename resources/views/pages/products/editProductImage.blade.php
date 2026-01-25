@@ -15,14 +15,15 @@
 
                 <div class="card p-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">Store Product Image</h4>
+                        <h4 class="mb-0">Edit Product Image</h4>
                         <a class="btn btn-primary btn-sm p-2" href="{{ route('products.show.product.image') }}">All Product Image</a>
                     </div>
 
                     <div class="card-body">
 
-                        <form action="{{ route('products.store.product.image') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('products.update.product.image' , $editProductImage->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
 
                             <div class="row">
 
@@ -30,9 +31,7 @@
                                 <div class="col-lg-6">
                                     <label for="name">Product name:</label>
                                     <input type="text" class="form-control mb-2" name="name"  id="name">
-                                    @error('name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                   
                                 </div>
 
 
@@ -44,7 +43,7 @@
                                 <option value="" selected disabled>--Select Product--</option>
                                 @foreach ($allProduct as $product)
 
-                                 <option value="{{ $product->id }}">{{ $product->title }}</option>
+                                 <option  {{ $editProductImage->id == $product->id ? 'selected' : '' }}  value="{{ $product->id }}">{{ $product->title }}</option>
 
                                  @endforeach
                                 </select>

@@ -7,7 +7,10 @@ use App\Models\Category\Category;
 use App\Models\Image\Image;
 use App\Models\Product\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use SweetAlert2\Laravel\Swal;
+
+use function Pest\Laravel\get;
 
 class ProductController extends Controller
 {
@@ -143,20 +146,106 @@ class ProductController extends Controller
 
         public function storeProductImage(Request $request){
             // dd($request->all());
+
             $request->validate([
                 'name' => 'required',
-                'product_id' => 'required|numeric',
-                'image' => 'required|image|mimes:jpg,png,webp'
+                'product_id' => 'required',
+                'images' => 'required|array',
+                // 'images.*' => 'image|mimes:jpg,jpeg,png,webp',
             ]);
 
-            // $image = new Image();
-            // $image->product_id = $request->product_id;
-            // $image->images = $request->image;
-            // $image->Product_name = $request->name;
-            // // $image->save();
+            if($request->hasFile('images')){
+                foreach( $request->file('images') as $image){
+                    $imageName = 'productImage-' . time() . Str::slug($image->getClientOriginalName());
+                    $image->storeAs('productImage/' , $imageName , 'public');
+                    Image::create([
+                    'product_name' => $request->name ,
+                    'product_id' => $request->product_id,
+                    'image' => $imageName,
+                    ]);
+                };
 
+
+            }
+
+        // $image = new Image();
+        // $image->product_id = $request->product_id;
+        // $image->image = $imageName;
+        // $image->Product_name = $request->name;
+        // $image->save();
+
+        return back()->with('success', 'Uploaded Successfully!');
+
+        }
+
+        //* Showing Product Images
+
+        public function showProductImage (){
+        // $productImages = Image::latest()
+        //     ->get()
+        //     ->groupBy('product_id');
+
+        $productImages = Product::with('images')->paginate(6);
+
+
+        return view('pages.products.showProductImage' , compact('productImages' ));
+        }
+
+        //* edit product image
+
+        public function editProductImage($id){
+        $allProduct = Product::select('id', 'title')->get();
+        $editProductImage = Product::with('images')->find($id);
+        if (!$editProductImage) {
+            return redirect()->back()->with('error', 'Image not found!');
+        }
+
+            return view('pages.products.editProductImage' , compact('editProductImage' , 'allProduct')) ;
+        }
+
+        //* update product image
+
+        public function updateProductImage( Request $request , $id){
+
+            $edited = Image::find($id);
+
+            $request->validate([
+
+                'product_id' => 'required',
+                'images' => 'required|array',
+                // 'images.*' => 'image|mimes:jpg,jpeg,png,webp',
+            ]);
+
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imageName = 'productImage-' . time() . Str::slug($image->getClientOriginalName());
+                $image->storeAs('productImage/', $imageName, 'public');
+                Image::create([
+                    'product_name' => $request->name,
+                    'product_id' => $request->product_id,
+                    'image' => $imageName,
+                ]);
+            };
+        }
+
+        // $edited->save();
+
+
+
+        return redirect()->route('products.show.product.image')->with('success' , 'Uploaded Successfully!') ;
+
+        }
+
+        //* Delete Product image
+        public function deleteProductImage($id){
+
+         Product::with('images')->find($id)->delete();
+
+         return back()->with('success', 'Deleted Successfully!');
 
 
         }
+
 
 }

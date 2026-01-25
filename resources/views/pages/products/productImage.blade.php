@@ -3,7 +3,9 @@
 
 @push('backend_css')
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <link href="filepond.css" rel="stylesheet" />
+        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
 @endpush
@@ -13,44 +15,52 @@
 
                 <div class="card p-4">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h4 class="mb-0">Store Product</h4>
+                        <h4 class="mb-0">Store Product Image</h4>
                         <a class="btn btn-primary btn-sm p-2" href="{{ route('products.product.list') }}">All Product List</a>
                     </div>
 
                     <div class="card-body">
 
-                        <form action="{{ route('products.product.list.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('products.store.product.image') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+
                             <div class="row">
 
-                          <div class="col-lg-6">
-                              <label for="name">Product name:</label>
-                            <input type="text" class="form-control mb-2" name="name"  id="name">
-                            @error('name')
-                             <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                          </div>
+
+                                <div class="col-lg-6">
+                                    <label for="name">Product name:</label>
+                                    <input type="text" class="form-control mb-2" name="name"  id="name">
+                                    @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
 
                           <div class="col-lg-6">
 
-                             <label for="category">Category:</label>
+                             <label for="product_id">Select Product Category:</label>
 
-                             <select id="category" class="js-example-basic-single form-control mb-2" name="category" >
-                                <option value="" selected disabled>--Select Category</option>
-                                @foreach ($allCategory as $category)
+                             <select id="product_id" class="js-example-basic-single form-control mb-2" name="product_id" >
+                                <option value="" selected disabled>--Select Product--</option>
+                                @foreach ($allProduct as $product)
 
-                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                 <option value="{{ $product->id }}">{{ $product->title }}</option>
 
                                  @endforeach
                                 </select>
 
-                            @error('category')
+                            @error('product_id')
                              <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
                           </div>
 
-                            <button type="submit" class="btn btn-primary p-2 mt-3 w-100">Store</button>
+                           <div class="col-lg-12">
+                            <label for="image">Upload Image:</label>
+                                    <input type="file" multiple name="image[]" />
+                                </div>
+
+                            <button type="submit" class="btn btn-primary p-2 mt-3 w-100">Store Image</button>
                             </div>
                         </form>
                     </div>
@@ -59,6 +69,18 @@
 @endsection
 
 @push('backend_js')
+
+<script src="filepond.js"></script>
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+<script>
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement, {
+        storeAsFile:true
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
@@ -78,9 +100,8 @@
     });
 </script>
 
-
-
 @endif
+
 
 @endpush
 

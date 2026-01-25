@@ -135,9 +135,27 @@ class ProductController extends Controller
 
     public function productImage()
         {
-        $allCategory = Category::select('id', 'title')->get();
+        $allProduct= Product::select('id', 'title')->get();
 
-        return view('pages.products.productImage' , compact('allCategory'));
+        return view('pages.products.productImage' , compact('allProduct'));
+        }
+
+        public function storeProductImage(Request $request){
+            // dd($request->all());
+            $request->validate([
+                'name' => 'required',
+                'product_id' => 'required|numeric',
+                'image' => 'required|image|mimes:jpg,png,webp'
+            ]);
+
+            // $image = new Product();
+            // $image->product_id = $request->product_id;
+            // $image->images = $request->image;
+            // $image->Product_name = $request->name;
+            // $image->save();
+
+
+
         }
 
 }

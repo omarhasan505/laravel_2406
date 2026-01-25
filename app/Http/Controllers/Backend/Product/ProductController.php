@@ -203,6 +203,14 @@ class ProductController extends Controller
             return view('pages.products.editProductImage' , compact('editProductImage' , 'allProduct')) ;
         }
 
+        //* Delete old image
+
+        public function deletEditProductImage($id){
+            Image::find($id)->delete();
+            return back();
+        }
+
+
         //* update product image
 
         public function updateProductImage( Request $request , $id){

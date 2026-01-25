@@ -31,7 +31,7 @@
                                 <div class="col-lg-6">
                                     <label for="name">Product name:</label>
                                     <input type="text" class="form-control mb-2" name="name"  id="name">
-                                   
+
                                 </div>
 
 
@@ -56,10 +56,23 @@
 
                            <div class="col-lg-12">
                             <label for="images">Upload Image:</label>
-                                    <input type="file" multiple name="images[]" />
+                                    <input type="file" multiple name="images[]" value="{{ $editProductImage->image }}" />
                                      @error('images')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
+                                </div>
+                                <div class="row ">
+                                    @forelse ($editProductImage->images as $item)
+                                <div class="card  mx-1 col-lg-2 text-center ">
+                                    <div class="card-body ">
+                                    <img style="width: 100px; height:auto;" src="{{ asset('storage/productImage/' . $item->image)  }}" alt="">
+                                    <a href="{{ route('products.delet.edit.product.image' , $item->id) }}"   class="text-danger  p-2 d-flex align-items-center"><iconify-icon icon="mingcute:delete-line" width="20" height="20"></iconify-icon></a>
+
+                                </div>
+
+                            </div>
+                            @empty
+                            @endforelse
                                 </div>
 
                             <button type="submit" class="btn btn-primary p-2 mt-3 w-100">Store Image</button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category\Category;
+use App\Models\Image\Image;
 use App\Models\Product\Product;
 use Illuminate\Http\Request;
 use SweetAlert2\Laravel\Swal;
@@ -148,11 +149,11 @@ class ProductController extends Controller
                 'image' => 'required|image|mimes:jpg,png,webp'
             ]);
 
-            // $image = new Product();
+            // $image = new Image();
             // $image->product_id = $request->product_id;
             // $image->images = $request->image;
             // $image->Product_name = $request->name;
-            // $image->save();
+            // // $image->save();
 
 
 

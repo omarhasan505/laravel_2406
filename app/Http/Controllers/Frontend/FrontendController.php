@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $categories = Category::with(['products.images'])->get();
         $featuredProducts = Product::with('images')->get();
 
         // dd($featuredProducts);
 
-        return view('welcome' , compact('featuredProducts' , 'categories'));
+        return view('welcome', compact('featuredProducts', 'categories'));
     }
 }

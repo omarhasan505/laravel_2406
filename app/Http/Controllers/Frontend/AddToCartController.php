@@ -11,49 +11,47 @@ use function Laravel\Prompts\alert;
 class AddToCartController extends Controller
 {
 
-//* Add  to Cart
-    public function addToCart($id){
+    //* Add  to Cart
+    public function addToCart($id)
+    {
 
-       $product = Product::with('images')->find($id);
-       $cart = session('cart' , []);
+        $product = Product::with('images')->find($id);
+        $cart = session('cart', []);
 
-       if(isset($cart[$id])){
-        $cart[$id]['quantity'] +=1;
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] += 1;
             session()->put('cart', $cart);
-        }else{
+        } else {
 
-           $cart[$id] = [
-            'title' => $product->title,
-            'description' => $product->description,
-            'price' => $product->price,
-            'image' => $product->images[0]->image,
-            'quantity' => 1,
-           ];
-       }
+            $cart[$id] = [
+                'title' => $product->title,
+                'description' => $product->description,
+                'price' => $product->price,
+                'image' => $product->images[0]->image,
+                'quantity' => 1,
+            ];
+        }
 
 
-        session()->put('cart' , $cart);
+        session()->put('cart', $cart);
 
-        return back()->with('success' , 'add to cart successfully!');
-
+        return back()->with('success', 'add to cart successfully!');
     }
 
     //* Delet Cart
 
-    public function deletCart($id){
+    public function deletCart($id)
+    {
 
         $cart = session('cart', []);
 
 
-        if(isset ($cart[$id])){
+        if (isset($cart[$id])) {
 
-            unset ($cart[$id]);
+            unset($cart[$id]);
             session()->put('cart', $cart);
-
         }
 
         return back()->with('success', 'Item removed from cart!');
     }
-
-
 }

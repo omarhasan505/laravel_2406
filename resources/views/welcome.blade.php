@@ -1,1 +1,4 @@
-@extends('frontend.layout')
+@extends('frontend.home')
+
+
+

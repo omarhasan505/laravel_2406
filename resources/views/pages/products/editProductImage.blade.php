@@ -66,7 +66,7 @@
                                 <div class="card  mx-1 col-lg-2 text-center ">
                                     <div class="card-body ">
                                     <img style="width: 100px; height:auto;" src="{{ asset('storage/productImage/' . $item->image)  }}" alt="">
-                                    <a href="{{ route('products.delet.edit.product.image' , $item->id) }}"   class="text-danger  p-2 d-flex align-items-center"><iconify-icon icon="mingcute:delete-line" width="20" height="20"></iconify-icon></a>
+                                    <a href="{{ route('products.delet.edit.product.image' , $item->id) }}" style="padding: 5px; border-radius:10px;border:2px solid red; width:30px ; height:30px; display:inline-flex;align-items:center; justify-content:center"  class="text-danger  p-2 d-flex align-items-center"><iconify-icon icon="mingcute:delete-line" width="20" height="20"></iconify-icon></a>
 
                                 </div>
 

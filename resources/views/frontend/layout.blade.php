@@ -16,7 +16,7 @@
 
 
     <!-- css part -->
-     {{-- @stack('backend_css') --}}
+    {{-- @stack('backend_css') --}}
 
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/venobox.css') }}">
@@ -100,7 +100,8 @@
                         <div class="line"></div>
                         <div class="count">
                             <span class="second_icon">
-                                <iconify-icon icon="heroicons:shopping-bag" width="32" height="32"></iconify-icon>
+                                <iconify-icon icon="heroicons:shopping-bag" width="32"
+                                    height="32"></iconify-icon>
                             </span>
                             <span class="number">2</span>
                         </div>
@@ -376,10 +377,39 @@
 
     @yield('frontend_content')
 
+    <button type="button" class="btn btn-primary position-relative add_to_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">
+        <iconify-icon icon="iconoir:add-to-cart" width="35" height="35"></iconify-icon>
+
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            0
+            <span class="visually-hidden">unread messages</span>
+        </span>
+    </button>
+
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h2 id="offcanvasRightLabel" style="color: #00b207">EcoBazar</h2>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="row">
+                <div class="col-xl-2">image</div>
+                <div class="col-xl-8">lorem10</div>
+                <div class="col-xl-2">icon</div>
+            </div>
+        </div>
+    </div>
+
     <!-- footer part -->
     <section id="footer">
-        <img class="left_side img-fluid d-none d-xl-block" src="{{ asset('frontend/assets/images/footer/Left.png') }}" alt="">
-        <img class="right_side img-fluid d-none d-xl-block " src="{{ asset('frontend/assets/images/footer/Right.png') }}" alt="">
+        <img class="left_side img-fluid d-none d-xl-block"
+            src="{{ asset('frontend/assets/images/footer/Left.png') }}" alt="">
+        <img class="right_side img-fluid d-none d-xl-block "
+            src="{{ asset('frontend/assets/images/footer/Right.png') }}" alt="">
         <div class="container">
             <div class="main_part ">
                 <div class="row ">
@@ -500,14 +530,30 @@
                             Instagram
                         </h4>
                         <div class="row images">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image.png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (1).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (2).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (3).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (4).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (5).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (6).png') }}" alt="">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/instagram picture/Image (7).png') }}" alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image.png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (1).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (2).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (3).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (4).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (5).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (6).png') }}"
+                                alt="">
+                            <img class="img-fluid"
+                                src="{{ asset('frontend/assets/images/instagram picture/Image (7).png') }}"
+                                alt="">
                         </div>
                     </div>
                 </div>
@@ -517,12 +563,14 @@
                     <div class="col-xl-3 social_icons">
                         <span class="ms-0">
                             <a href="#">
-                                <iconify-icon icon="flowbite:facebook-solid" width="24" height="24"></iconify-icon>
+                                <iconify-icon icon="flowbite:facebook-solid" width="24"
+                                    height="24"></iconify-icon>
                             </a>
                         </span>
                         <span>
                             <a href="#">
-                                <iconify-icon icon="flowbite:twitter-solid" width="24" height="24"></iconify-icon>
+                                <iconify-icon icon="flowbite:twitter-solid" width="24"
+                                    height="24"></iconify-icon>
                             </a>
                         </span>
                         <span>
@@ -545,29 +593,38 @@
                         <div class="row justify-content-between">
                             <span>
                                 <a href="#">
-                                    <img class="img-fluid " src="{{ asset('frontend/assets/images/payment/ApplePay.png') }}" alt="">
+                                    <img class="img-fluid "
+                                        src="{{ asset('frontend/assets/images/payment/ApplePay.png') }}"
+                                        alt="">
                                 </a>
                             </span>
                             <span>
                                 <a href="#">
-                                    <img class="img-fluid" src="{{ asset('frontend/assets/images/payment/Mastercard.png') }}" alt="">
+                                    <img class="img-fluid"
+                                        src="{{ asset('frontend/assets/images/payment/Mastercard.png') }}"
+                                        alt="">
                                 </a>
                             </span>
                             <span>
                                 <a href="#">
-                                    <img class="img-fluid" src="{{ asset('frontend/assets/images/payment/Discover.png') }}" alt="">
+                                    <img class="img-fluid"
+                                        src="{{ asset('frontend/assets/images/payment/Discover.png') }}"
+                                        alt="">
                                 </a>
                             </span>
                             <span>
                                 <a href="#">
-                                    <img class="img-fluid" src="{{ asset('frontend/assets/images/payment/visa-logo.png') }}" alt="">
+                                    <img class="img-fluid"
+                                        src="{{ asset('frontend/assets/images/payment/visa-logo.png') }}"
+                                        alt="">
                                 </a>
                             </span>
                             <span>
                                 <a class="secure_payment" href="#">
                                     <div>
                                         <span>
-                                            <iconify-icon icon="prime:lock" width="24" height="24"></iconify-icon>
+                                            <iconify-icon icon="prime:lock" width="24"
+                                                height="24"></iconify-icon>
                                         </span>
                                         <span>Secure</span>
                                     </div>

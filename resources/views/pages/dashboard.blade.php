@@ -164,7 +164,31 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="menu-item {{ Route::is('products.*') ? 'active open' : ''}}  ">
+
+                    <li class="menu-item {{ Route::is('category.*') ? 'active open' : ''}}  ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                           <iconify-icon icon="material-symbols:category-search-outline-rounded" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
+                            <div data-i18n="Layouts">Categories</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ Route::is('category.select.category') ? 'active open' : '' }} ">
+                                <a href="{{ route('category.select.category') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Add Category</div>
+                                </a>
+                            </li>
+                            <li class="menu-item {{ Route::is('category.list.category') ? 'active open' : '' }} ">
+                                <a href="{{ route('category.list.category') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Category List</div>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
+                     <li class="menu-item {{ Route::is('products.*') ? 'active open' : ''}}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="ant-design:product-outlined" width="24" height="24"></iconify-icon> &nbsp; &nbsp;
                             <div data-i18n="Layouts">Products</div>
@@ -195,28 +219,7 @@
 
                         </ul>
                     </li>
-                    <li class="menu-item {{ Route::is('category.*') ? 'active open' : ''}}  ">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                           <iconify-icon icon="material-symbols:category-search-outline-rounded" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
-                            <div data-i18n="Layouts">Categories</div>
-                        </a>
 
-                        <ul class="menu-sub">
-                            <li class="menu-item {{ Route::is('category.select.category') ? 'active open' : '' }} ">
-                                <a href="{{ route('category.select.category') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Add Category</div>
-                                </a>
-                            </li>
-                            <li class="menu-item {{ Route::is('category.list.category') ? 'active open' : '' }} ">
-                                <a href="{{ route('category.list.category') }}" class="menu-link">
-                                    <div data-i18n="Without menu">Category List</div>
-                                </a>
-                            </li>
-
-
-
-                        </ul>
-                    </li>
                     <li class="menu-item {{ Route::is('orm.*') ? 'active open' : ''}}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="tabler:circles-relation" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;

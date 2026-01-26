@@ -185,7 +185,7 @@ class ProductController extends Controller
         //     ->get()
         //     ->groupBy('product_id');
 
-        $productImages = Product::with('images')->paginate(6);
+        $productImages = Product::with('images')->paginate(1);
 
 
         return view('pages.products.showProductImage' , compact('productImages' ));
@@ -238,8 +238,6 @@ class ProductController extends Controller
         }
 
         // $edited->save();
-
-
 
         return redirect()->route('products.show.product.image')->with('success' , 'Uploaded Successfully!') ;
 

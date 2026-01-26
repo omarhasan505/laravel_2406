@@ -60,7 +60,7 @@
                                      @error('images')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
-                                </div>
+                            </div>
                                 <div class="row ">
                                     @forelse ($editProductImage->images as $item)
                                 <div class="card  mx-1 col-lg-2 text-center ">

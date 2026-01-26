@@ -301,6 +301,7 @@
     <!-- navbar part_2 end -->
 
 
+
     <!-- mobile_footer -->
     <section id="mobile_footer" class="d-xl-none">
         <div class=" row">
@@ -377,12 +378,23 @@
 
     @yield('frontend_content')
 
+    @php
+        $totalQty = 0;
+    @endphp
+
+    @foreach (session('cart' , []) as $productQty )
+    @php
+                  $totalQty = $totalQty + $productQty['quantity'] ;
+
+    @endphp
+    @endforeach
+
     <button type="button" class="btn btn-primary position-relative add_to_icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight">
         <iconify-icon icon="iconoir:add-to-cart" width="35" height="35"></iconify-icon>
 
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            0
+           {{ $totalQty }}
             <span class="visually-hidden">unread messages</span>
         </span>
     </button>
@@ -395,12 +407,29 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <div class="row">
-                <div class="col-xl-2">image</div>
-                <div class="col-xl-8">lorem10</div>
-                <div class="col-xl-2">icon</div>
+        <div class="offcanvas-body ">
+
+            @forelse (session('cart' , []) as $key => $item)
+
+            <div class="row mb-2 shadow-sm">
+                <div class="col-xl-3">
+                    <img class="img-fluid" src="{{ asset('storage/productimage/'. $item['image']) }}" alt="">
+                </div>
+                <div class="col-xl-7">
+                    <strong>{{ $item['title'] }}</strong>
+                    <p class="mb-0">Qty:&nbsp;{{ $item['quantity'] }}</p>
+                    <p class="mb-0">Price:&nbsp;{{ $item['price'] }} * {{ $item['quantity'] }} = {{ $item['price'] * $item['quantity'] }}tk</p>
+                </div>
+                <div class="col-xl-2 d-flex justify-content-center align-items-center ">
+                    <a href="{{ route('frontend.deletCart' , $key ) }}" class="d-flex justify-content-center align-items-center"><iconify-icon icon="emojione-v1:cross-mark" width="28" height="28"></iconify-icon></a>
+                </div>
             </div>
+            @empty
+
+            @endforelse
+        </div>
+        <div class="d-flex justify-content-center align-items-center my-3 ">
+            <a href="#" class="btn-outline-hover" style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
         </div>
     </div>
 
@@ -644,6 +673,8 @@
 
 
     <!-- js part -->
+
+    @stack('frontend_js')
 
     <script src="{{ asset('frontend/assets/js/jquery-3.7.1.min.js') }}"></script>
 

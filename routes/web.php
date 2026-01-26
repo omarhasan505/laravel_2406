@@ -4,11 +4,13 @@ use App\Http\Controllers\Backend\Category\CategoryController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Relation\RelationController;
 use App\Http\Controllers\Backend\RolePermission\RolePermissionController;
+use App\Http\Controllers\Frontend\AddToCartController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -120,6 +122,8 @@ Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 
 
 Route::name('frontend.')->group(function(){
     Route::get('/' , [FrontendController::class, 'index'])->name('featured');
+    Route::get('/addToCart/{id}' , [AddToCartController::class, 'addToCart'])->name('addToCart');
+    Route::get('/deletCart/{id}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
 });
 
 

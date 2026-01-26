@@ -1,8 +1,7 @@
 @extends('frontend.layout')
 
 @section('frontend_content')
-
-<!-- banner part -->
+    <!-- banner part -->
     <section id="banner">
         <div class="container">
             <div class="sliders">
@@ -42,7 +41,8 @@
                 <div class="slides">
                     <div class="row align-items-center">
                         <div class="col-xl-6">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/Banner/Image.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('frontend/assets/images/Banner/Image.png') }}"
+                                alt="">
                         </div>
                         <div class="col-xl-6 contains">
                             <h4>
@@ -75,7 +75,8 @@
                 <div class="slides">
                     <div class="row align-items-center">
                         <div class="col-xl-6">
-                            <img class="img-fluid" src="{{ asset('frontend/assets/images/Banner/Image.png') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('frontend/assets/images/Banner/Image.png') }}"
+                                alt="">
                         </div>
                         <div class="col-xl-6 contains">
                             <h4>
@@ -117,7 +118,8 @@
             <div class="row">
                 <div class="col-xl-3 service">
                     <a href="#">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/delivery-truck 1.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/delivery-truck 1.png') }}"
+                            alt="">
                         <h4>
                             Free Shipping
                         </h4>
@@ -128,7 +130,8 @@
                 </div>
                 <div class="col-xl-3 service">
                     <a href="#">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/headphones 1.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/headphones 1.png') }}"
+                            alt="">
                         <h4>
                             Great Support 24/7
                         </h4>
@@ -139,7 +142,8 @@
                 </div>
                 <div class="col-xl-3 service">
                     <a href="#">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/shopping-bag.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/shopping-bag.png') }}"
+                            alt="">
                         <h4>
                             100% Sucure Payment
                         </h4>
@@ -150,7 +154,8 @@
                 </div>
                 <div class="col-xl-3 service">
                     <a href="#">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/package.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/service/package.png') }}"
+                            alt="">
                         <h4>
                             Money-Back Guarantee
                         </h4>
@@ -175,78 +180,95 @@
             </div>
 
             <div class="category_changer_btns">
-                <button class="category-button" data-filter="All">All</button>
-                <button class="category-button" data-filter="Vegetables">Vegetables</button>
+                <button class="category-button active" data-filter="All">All</button>
+
+                @foreach ($categories as $category)
+                    <button class="category-button active"
+                        data-filter="{{ $category->title }}">{{ $category->title }}</button>
+                @endforeach
+
+                {{-- <button class="category-button" data-filter="Vegetables">Vegetables</button>
                 <button class="category-button" data-filter="Fruit">Fruit</button>
                 <button class="category-button" data-filter="Meat&Fish">Meat & Fish</button>
-                <button class="category-button" data-filter="View_All">View All</button>
+                <button class="category-button" data-filter="View_All">View All</button> --}}
             </div>
 
 
             <div class="row">
 
-                <div class="single_product_slide col-xl-3 filter Fruit">
-                    <div class="img ">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/all product/1 (1).png') }}" alt="">
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="details">
-                            <h4>
-                                Green Apple
-                            </h4>
-                            <b>
-                                $14.99
-                            </b>
-                            <del>
-                                $20.99
-                            </del>
-                            <div class="star_icon d-flex">
-                                <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
-                                        height="13"></iconify-icon>
-                                </span>
-                                <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
-                                        height="13"></iconify-icon>
-                                </span>
-                                <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
-                                        height="13"></iconify-icon>
-                                </span>
-                                <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
-                                        height="13"></iconify-icon>
-                                </span>
-                                <span><iconify-icon icon="line-md:star-filled" width="13" height="13"></iconify-icon>
-                                </span>
+                @foreach ($categories as $category)
+                    @forelse ($category->products as $product)
+                        <div class="single_product_slide col-xl-3 filter {{ $category->title }} All">
+                            <div class="img ">
+                                <img class="img-fluid"
+                                    src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="details">
+                                    <h4>
+                                        {{ $product->title }}
+                                    </h4>
+                                    <b>
+                                        {{ $product->discount_price }}
+                                    </b>
+                                    <del>
+                                        {{ $product->price }}
+                                    </del>
+                                    <div class="star_icon d-flex">
+                                        <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
+                                                height="13"></iconify-icon>
+                                        </span>
+                                        <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
+                                                height="13"></iconify-icon>
+                                        </span>
+                                        <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
+                                                height="13"></iconify-icon>
+                                        </span>
+                                        <span class="active"><iconify-icon icon="line-md:star-filled" width="13"
+                                                height="13"></iconify-icon>
+                                        </span>
+                                        <span><iconify-icon icon="line-md:star-filled" width="13"
+                                                height="13"></iconify-icon>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="bag_cart">
+                                    <a href="{{ route('frontend.addToCart', $product->id) }}">
+                                        <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
+                                            height="24"></iconify-icon>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="offer">
+                                <p>
+                                    Sale 50%
+                                </p>
+                            </div>
+                            <div class="other_icons">
+                                <ul>
+                                    <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                            href="#">
+                                            <span>
+                                                <iconify-icon icon="ph:heart" width="24"
+                                                    height="24"></iconify-icon>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                            href="#">
+                                            <span>
+                                                <iconify-icon icon="nimbus:eye" width="24"
+                                                    height="24"></iconify-icon>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="bag_cart">
-                            <span>
-                                <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
-                                    height="24"></iconify-icon>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="offer">
-                        <p>
-                            Sale 50%
-                        </p>
-                    </div>
-                    <div class="other_icons">
-                        <ul>
-                            <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left" href="#">
-                                    <span>
-                                        <iconify-icon icon="ph:heart" width="24" height="24"></iconify-icon>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left" href="#">
-                                    <span>
-                                        <iconify-icon icon="nimbus:eye" width="24" height="24"></iconify-icon>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                    @empty
+                    @endforelse
+                @endforeach
 
 
             </div>
@@ -288,8 +310,7 @@
                 </div>
             </div>
             <div class="shoping_btn">
-                <a
-                    href="shopping_cart.html">
+                <a href="shopping_cart.html">
                     Shop now&nbsp; <span>
                         <iconify-icon icon="lets-icons:arrow-right-light" width="24" height="24"></iconify-icon>
                     </span>
@@ -311,70 +332,76 @@
             <div class="product_slider">
 
                 @forelse ($featuredProducts as $product)
+                    <div class="single_product_slide">
+                        <div class="img ">
+                            {{-- @foreach ($product->images as $item) --}}
 
-                <div class="single_product_slide">
-                    <div class="img ">
-                        {{-- @foreach ($product->images as $item) --}}
-
-                        <img class="img-fluid" src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
-                        {{-- @endforeach --}}
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="details">
-                            <h4>
-                                {{ $product->title }}
-                            </h4>
-                            <b>
-                               {{ $product->discount_price }}
-                            </b>
-                            <del>
-                                {{ $product->price }}
-                            </del>
-                            <div class="star_icon d-flex">
-                                <span><iconify-icon icon="line-md:star-filled" width="12" height="12"></iconify-icon>
-                                </span>
-                                <span><iconify-icon icon="line-md:star-filled" width="12" height="12"></iconify-icon>
-                                </span>
-                                <span><iconify-icon icon="line-md:star-filled" width="12" height="12"></iconify-icon>
-                                </span>
-                                <span><iconify-icon icon="line-md:star-filled" width="12" height="12"></iconify-icon>
-                                </span>
-                                <span><iconify-icon icon="line-md:star-filled" width="12" height="12"></iconify-icon>
-                                </span>
+                            <img class="img-fluid"
+                                src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+                            {{-- @endforeach --}}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="details">
+                                <h4>
+                                    {{ $product->title }}
+                                </h4>
+                                <b>
+                                    {{ $product->discount_price }}
+                                </b>
+                                <del>
+                                    {{ $product->price }}
+                                </del>
+                                <div class="star_icon d-flex">
+                                    <span><iconify-icon icon="line-md:star-filled" width="12"
+                                            height="12"></iconify-icon>
+                                    </span>
+                                    <span><iconify-icon icon="line-md:star-filled" width="12"
+                                            height="12"></iconify-icon>
+                                    </span>
+                                    <span><iconify-icon icon="line-md:star-filled" width="12"
+                                            height="12"></iconify-icon>
+                                    </span>
+                                    <span><iconify-icon icon="line-md:star-filled" width="12"
+                                            height="12"></iconify-icon>
+                                    </span>
+                                    <span><iconify-icon icon="line-md:star-filled" width="12"
+                                            height="12"></iconify-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bag_cart">
+                                <a href="{{ route('frontend.addToCart', $product->id) }}">
+                                    <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
+                                        height="24"></iconify-icon>
+                                </a>
                             </div>
                         </div>
-                        <div class="bag_cart">
-                            <span>
-                                <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
-                                    height="24"></iconify-icon>
-                            </span>
+                        <div class="offer">
+                            <p>
+                                Sale 50%
+                            </p>
+                        </div>
+                        <div class="other_icons">
+                            <ul>
+                                <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                        href="#">
+                                        <span>
+                                            <iconify-icon icon="ph:heart" width="24" height="24"></iconify-icon>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                        href="#">
+                                        <span>
+                                            <iconify-icon icon="nimbus:eye" width="24" height="24"></iconify-icon>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="offer">
-                        <p>
-                            Sale 50%
-                        </p>
-                    </div>
-                    <div class="other_icons">
-                        <ul>
-                            <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left" href="#">
-                                    <span>
-                                        <iconify-icon icon="ph:heart" width="24" height="24"></iconify-icon>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left" href="#">
-                                    <span>
-                                        <iconify-icon icon="nimbus:eye" width="24" height="24"></iconify-icon>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 @empty
-
                 @endforelse
 
 
@@ -395,7 +422,8 @@
             <div class="row justify-content-between">
                 <div class="col-xl-4">
                     <div class="comment">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}"
+                            alt="">
                         <p>
                             “Aenean et nisl eget eros consectetur vestibulum vel id erat. Aliquam feugiat massa dui. Sed
                             sagittis diam sit amet
@@ -407,7 +435,8 @@
                         </div>
                     </div>
                     <div class="commenter">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image.png') }}"
+                            alt="">
                         <h4>
                             Jenny Willson
                         </h4>
@@ -418,7 +447,8 @@
                 </div>
                 <div class="col-xl-4">
                     <div class="comment">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}"
+                            alt="">
                         <p>
                             “Aenean et nisl eget eros consectetur vestibulum vel id erat. Aliquam feugiat massa dui. Sed
                             sagittis diam sit amet
@@ -430,7 +460,8 @@
                         </div>
                     </div>
                     <div class="commenter">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image2 (2).png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image2 (2).png') }}"
+                            alt="">
                         <h4>
                             Guy Hawkins
                         </h4>
@@ -441,7 +472,8 @@
                 </div>
                 <div class="col-xl-4">
                     <div class="comment">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Vector.png') }}"
+                            alt="">
                         <p>
                             “Aenean et nisl eget eros consectetur vestibulum vel id erat. Aliquam feugiat massa dui. Sed
                             sagittis diam sit amet
@@ -453,7 +485,8 @@
                         </div>
                     </div>
                     <div class="commenter">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image2 (1).png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/review/Image2 (1).png') }}"
+                            alt="">
                         <h4>
                             Kathryn Murphy
                         </h4>
@@ -465,7 +498,8 @@
             </div>
             <div class="video">
                 <div class="video_player">
-                    <img class="img-fluid d-block" src="{{ asset('frontend/assets/images/video/Image.png') }}" alt="">
+                    <img class="img-fluid d-block" src="{{ asset('frontend/assets/images/video/Image.png') }}"
+                        alt="">
 
                     <div class="humbnail">
                         <h3>
@@ -477,7 +511,8 @@
                         <a class="venobox" data-gall="gall-video" data-autoplay="true" data-vbtype="video"
                             href="https://www.youtube.com/watch?v=TD_N2VR3P1s">
                             <span>
-                                <iconify-icon icon="iconamoon:play-circle-thin" width="80" height="80"></iconify-icon>
+                                <iconify-icon icon="iconamoon:play-circle-thin" width="80"
+                                    height="80"></iconify-icon>
                             </span>
                         </a>
                     </div>
@@ -496,7 +531,8 @@
             <div class="subscribe">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-xl-3 logo">
-                        <img class="img-fluid d-block" src="{{ asset('frontend/assets/images/Logo (1).png') }}" alt="">
+                        <img class="img-fluid d-block" src="{{ asset('frontend/assets/images/Logo (1).png') }}"
+                            alt="">
                     </div>
                     <div class="col-xl-4 content">
                         <h4>
@@ -520,7 +556,8 @@
                 </h4>
                 <div class="row justify-content-between">
                     <div class=" news_box">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Image.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Image.png') }}"
+                            alt="">
                         <div class="content">
                             <h4>
                                 Curabitur porttitor orci eget neque accumsan venenatis.
@@ -540,7 +577,8 @@
                         </div>
                     </div>
                     <div class=" news_box">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Image (1).png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Image (1).png') }}"
+                            alt="">
                         <div class="content">
                             <h4>
                                 Curabitur porttitor orci eget neque accumsan venenatis.
@@ -561,7 +599,8 @@
                         </div>
                     </div>
                     <div class=" news_box">
-                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Frame 206.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('frontend/assets/images/newspaper/Frame 206.png') }}"
+                            alt="">
                         <div class="content">
                             <h4>
                                 Curabitur porttitor orci eget neque accumsan venenatis.
@@ -587,7 +626,23 @@
 
     </section>
     <!-- subscribe part end -->
-
-
-
 @endsection
+
+@push('frontend_js')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Success',
+                text: "{{ session('success') }}",
+                timer: 2000,
+                showConfirmButton: false
+            });
+        </script>
+    @endif
+
+@endpush

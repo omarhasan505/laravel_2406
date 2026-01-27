@@ -90,6 +90,16 @@
                         <button type="submit">Submit</button>
                     </form>
                 </div>
+                @php
+                    $subtotal =0;
+                    $subqty = 0;
+                @endphp
+                  @foreach(session('cart' , []) as  $value)
+                  @php
+                    $subtotal = $subtotal + $value['quantity']*$value['price'];
+                    $subqty = $subqty + $value['quantity'];
+                  @endphp
+                   @endforeach
                 <div class="d-none d-xl-flex col-xl-3 icon_contain">
                     <div class="icons">
                         <div>
@@ -103,18 +113,21 @@
                                 <iconify-icon icon="heroicons:shopping-bag" width="32"
                                     height="32"></iconify-icon>
                             </span>
-                            <span class="number">2</span>
+                            <span class="number">{{ $subqty }}</span>
                         </div>
                     </div>
                     <div class="contain">
                         <p>
                             Shopping cart:
                         </p>
+
                         <b>
-                            $57.00
+                           {{ $subtotal }}Tk
                         </b>
+
                     </div>
                 </div>
+
             </div>
             <span class="d-xl-none d-lg-block mobile_menu" data-bs-toggle="offcanvas" href="#offcanvasExample"
                 role="button" aria-controls="offcanvasExample">

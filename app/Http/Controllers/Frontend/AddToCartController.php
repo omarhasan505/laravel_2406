@@ -89,9 +89,11 @@ class AddToCartController extends Controller
         $cart = session('cart', []);
 
         $currentAmount = 0;
+        $currentQuantity = 0;
 
         foreach($cart as $item){
             $currentAmount += ($item['quantity'] ?? 0)*($item['price'] ?? 0);
+            $currentQuantity = $currentQuantity + $item['quantity'];
         }
 
         if(empty($cart)){
@@ -153,7 +155,8 @@ class AddToCartController extends Controller
                     'status' => 'Pending',
                     'address' => $post_data['cus_add1'],
                     'transaction_id' => $post_data['tran_id'],
-                    'currency' => $post_data['currency']
+                    'currency' => $post_data['currency'],
+                'quantity' => $currentQuantity,
                 ]);
 
             $sslc = new SslCommerzNotification();
@@ -182,7 +185,8 @@ class AddToCartController extends Controller
                 'status' => 'Pending',
                 'address' => $request->address,
                 'transaction_id' => $transac_id,
-                'currency' => "BDT"
+                'currency' => "BDT",
+                'quantity' => $currentQuantity,
             ]);
 
             session()->forget('cart');

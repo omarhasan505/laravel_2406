@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Category\CategoryController;
+use App\Http\Controllers\Backend\Order\OrderController;
 use App\Http\Controllers\Backend\Product\ProductController;
 use App\Http\Controllers\Backend\Relation\RelationController;
 use App\Http\Controllers\Backend\RolePermission\RolePermissionController;
@@ -11,6 +12,8 @@ use App\Http\Controllers\SslCommerzPaymentController;
 use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
+
+
 
 
 
@@ -115,6 +118,10 @@ Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 
     Route::get('/categoryDelete/{id}' , [CategoryController::class , 'categoryDelete'])->name('delete.category');
 
 
+});
+
+Route::prefix('/dashboard/order')->name('order')->middleware(['auth' , 'verified'])->group(function(){
+    Route::get('/orderList' , [OrderController::class , 'index'])->name('order.list');
 });
 
 

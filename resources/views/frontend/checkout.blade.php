@@ -3,8 +3,8 @@
 @section('frontend_content')
     <section id="billing_information">
         <div class="container">
-            <form action="" method="post" enctype="multipart/form-data">
-
+            <form action="{{ route('frontend.placeOrder') }}" method="post" enctype="multipart/form-data">
+                @csrf
                 <div class="row justify-content-between">
                     <div class="col-xl-7 billiing_table ">
                         <table>
@@ -21,19 +21,25 @@
                                         <h3>
                                             First Name
                                         </h3>
-                                        <input type="text" placeholder="Your first name">
+                                        <input name="first_name" id="first_name" type="text" placeholder="Your first name">
+                                        @error('frist_name')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                     <td>
                                         <h3>
                                             Last Name
                                         </h3>
-                                        <input type="text" placeholder="Your last name">
+                                        <input name="last_name" id="last_name" type="text" placeholder="Your last name">
+                                        @error('last_name')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                     <td>
                                         <h3>
                                             Company Name(optional)
                                         </h3>
-                                        <input type="text" placeholder="Company name">
+                                        <input name="comapny_name" type="text" placeholder="Company name">
                                     </td>
                                 </tr>
                                 <tr class="street">
@@ -41,7 +47,10 @@
                                         <h3>
                                             Street Address
                                         </h3>
-                                        <input type="text" placeholder="Email">
+                                        <input name="address" id="address" type="text" placeholder="Address">
+                                        @error('address')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                 </tr>
                                 <tr>
@@ -49,25 +58,36 @@
                                         <h3>
                                             Country / Region
                                         </h3>
-                                        <select name="Country" id="Country">
+                                        <select name="country" id="country">
+                                            <option value="" selected disabled>--Select Country--</option>
                                             <option value="bangladesh">Bangladesh</option>
                                             <option value="canada">Canada</option>
                                             <option value="noakhali">Noakhali</option>
                                         </select>
+                                        @error('country')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                     <td>
                                         <h3>
                                             States
                                         </h3>
-                                        <select name="States" id="">
+                                        <select name="states" id="states">
+                                            <option value="" selected disabled>--Select States--</option>
                                             <option value="Chittagong">Chittagong</option>
                                             <option value="Dhaka">Dhaka</option>
                                             <option value="Feni">Feni</option>
                                         </select>
+                                        @error('states')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                     <td>
                                         <h3>Zip Code</h3>
-                                        <input type="text" placeholder="Zip code">
+                                        <input name="zip_code" type="text" placeholder="Zip code">
+                                        @error('zip_code')
+                                            <p class="text-danger mb-0">{{ $message }}</p>
+                                        @enderror
                                     </td>
                                 </tr>
                                 <tr>
@@ -77,13 +97,19 @@
                                                 <h3>
                                                     Email
                                                 </h3>
-                                                <input type="email" placeholder="Email">
+                                                <input name="email" id="email" type="email" placeholder="Email">
+                                                @error('email')
+                                                    <p class="text-danger mb-0">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             <div>
                                                 <h3>
                                                     Phone
                                                 </h3>
-                                                <input type="text" placeholder="Number">
+                                                <input name="phone" id="phone" type="number" placeholder="Number">
+                                                @error('phone')
+                                                    <p class="text-danger mb-0">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                         </div>
                                     </td>
@@ -103,7 +129,7 @@
                             <h3>
                                 Order Notes (Optional)
                             </h3>
-                            <textarea name="order_notes" id="">Notes about your order, e.g. special notes for delivery</textarea>
+                            <textarea name="order_notes" id="order_notes">Notes about your order, e.g. special notes for delivery</textarea>
                         </div>
                     </div>
                     <div class="col-xl-4 ">
@@ -113,6 +139,7 @@
                             </h4>
                             @foreach (session('cart', []) as $key => $item)
                                 <div class="total_items">
+
                                     <div class="items row">
                                         <div class="col-xl-3">
                                             <img class="img-fluid" src="{{ 'storage/productImage/' . $item['image'] }}"
@@ -179,17 +206,14 @@
                                     Payment Method
                                 </h4>
                                 <p>
-                                    <input type="radio" name="payment" id="payment" value="cod">
-                                    Cash on delivery
+                                    <input type="radio" name="payment" id="cod" value="cod">
+                                    <label for="cod">Cash on delivery</label>
                                 </p>
                                 <p>
-                                    <input type="radio" name="payment" id="payment" value="Paypal">
-                                    Paypal
+                                    <input type="radio" name="payment" id="online_payment" value="online_payment">
+                                    <label for="online_payment">Online Payment</label>
                                 </p>
-                                <p>
-                                    <input type="radio" name="payment" id="payment" value="Amazon">
-                                    Amazon pay
-                                </p>
+
                             </div>
                             <button type="submit">
                                 Place Order
@@ -204,3 +228,28 @@
         </div>
     </section>
 @endsection
+
+@push('frontend_js')
+
+<script>
+    var obj = {};
+    obj.cus_name = $('#first_name').val();
+    obj.cus_phone = $('#phone').val();
+    obj.cus_email = $('#email').val();
+    obj.cus_addr1 = $('#address').val();
+    // obj.amount = $('#total_amount').val();
+
+    $('#sslczPayBtn').prop('postdata', obj);
+
+    (function (window, document) {
+        var loader = function () {
+            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+            tag.parentNode.insertBefore(script, tag);
+        };
+
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+    })(window, document);
+</script>
+
+@endpush

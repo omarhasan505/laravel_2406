@@ -434,10 +434,19 @@
             @empty
             @endforelse
         </div>
+        @if (isset( $item))
+
         <div class="d-flex justify-content-center align-items-center my-3 ">
             <a href="{{ route('frontend.checkoutCart') }}" class="btn-outline-hover"
                 style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
         </div>
+        @else
+        <div class="d-flex justify-content-center align-items-center my-3 ">
+            <a href="" class="bg-danger"
+                style="width: 95%;  padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Nothing to checkout</a>
+        </div>
+        @endif
+
     </div>
 
     <!-- footer part -->

@@ -7,9 +7,11 @@ use App\Http\Controllers\Backend\RolePermission\RolePermissionController;
 use App\Http\Controllers\Frontend\AddToCartController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Models\Category\Category;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -125,9 +127,23 @@ Route::name('frontend.')->group(function(){
     Route::get('/addToCart/{id}' , [AddToCartController::class, 'addToCart'])->name('addToCart');
     Route::get('/deletCart/{id}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
     Route::get('/checkoutCart' , [AddToCartController::class, 'checkoutCart'])->name('checkoutCart');
+    Route::post('/placeOrder' , [AddToCartController::class, 'placeOrder'])->name('placeOrder');
 });
 
 
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
 
 
 require __DIR__.'/auth.php';

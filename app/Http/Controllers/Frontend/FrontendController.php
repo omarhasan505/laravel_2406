@@ -11,7 +11,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $categories = Category::with(['products.images'])->get();
+        $categories = Category::with(['products'])->get();
         $featuredProducts = Product::with('images')->get();
 
         // dd($featuredProducts);

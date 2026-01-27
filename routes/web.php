@@ -124,6 +124,7 @@ Route::name('frontend.')->group(function(){
     Route::get('/' , [FrontendController::class, 'index'])->name('featured');
     Route::get('/addToCart/{id}' , [AddToCartController::class, 'addToCart'])->name('addToCart');
     Route::get('/deletCart/{id}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
+    Route::get('/checkoutCart' , [AddToCartController::class, 'checkoutCart'])->name('checkoutCart');
 });
 
 

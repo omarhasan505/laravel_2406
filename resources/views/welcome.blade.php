@@ -2,6 +2,7 @@
 
 @section('frontend_content')
     <!-- banner part -->
+    
     <section id="banner">
         <div class="container">
             <div class="sliders">

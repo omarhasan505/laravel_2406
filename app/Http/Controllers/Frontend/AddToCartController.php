@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category\Category;
 use App\Models\Product\Product;
-use Illuminate\Http\Request;
 
 use function Laravel\Prompts\alert;
+use Illuminate\Http\Request;
 
 class AddToCartController extends Controller
 {
@@ -53,5 +54,13 @@ class AddToCartController extends Controller
         }
 
         return back()->with('success', 'Item removed from cart!');
+    }
+
+    //* Checkout Cart
+
+    public function checkoutCart(){
+        $categories = Category::with(['products.images'])->get();
+
+        return view('frontend.checkout' , compact('categories'));
     }
 }

@@ -77,7 +77,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col-xl-3">
-                    <a href="#navbar">
+                    <a href="{{ route('frontend.featured') }}">
                         <img class="img-fluid" src="{{ asset('frontend/assets/images/Logo (1).png') }}" alt="">
                     </a>
                 </div>
@@ -218,9 +218,13 @@
                                 height="24"></iconify-icon></span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        @forelse ($categories as $category)
+
+                        <li><a class="dropdown-item" href="#">{{ $category->title }}</a></li>
+                        @empty
+                        <li><p class="text-danger mb-0">No Category found!</p></li>
+
+                        @endforelse
                     </ul>
                 </div>
                 <div class="dropdown other_buttons home">
@@ -431,7 +435,7 @@
             @endforelse
         </div>
         <div class="d-flex justify-content-center align-items-center my-3 ">
-            <a href="#" class="btn-outline-hover"
+            <a href="{{ route('frontend.checkoutCart') }}" class="btn-outline-hover"
                 style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
         </div>
     </div>

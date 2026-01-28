@@ -149,8 +149,8 @@ class AddToCartController extends Controller
 
             #Before  going to initiate the payment order status need to insert or update as Pending.
             $order = Order::
-                where('transaction_id', $post_data['tran_id'])
-                ->updateOrInsert([
+                // where('transaction_id', $post_data['tran_id'])
+                create([
                     'name' => $post_data['cus_name'],
                     'email' => $post_data['cus_email'],
                     'phone' => $post_data['cus_phone'],
@@ -171,17 +171,16 @@ class AddToCartController extends Controller
                 $payment_options = array();
             }
 
-
-
             return ;
         }
+
 
         $transac_id = uniqid();
 
         //  DB::table('orders')
             $order = Order::
-            where('transaction_id',  $transac_id)
-            ->create([
+            // where('transaction_id',  $transac_id)
+            create([
                 'name' => $request->first_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -198,8 +197,6 @@ class AddToCartController extends Controller
         // if (!$cart) {
         //     return redirect()->back()->with('success', 'Cart is empty');
         // }
-
-        
 
         $subtotal = 0;
         foreach ($cart as $item) {

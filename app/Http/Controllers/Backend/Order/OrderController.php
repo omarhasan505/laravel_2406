@@ -12,7 +12,7 @@ class OrderController extends Controller
     //* getting order
 
     public function index(){
-        $orderLists = Order::latest()->get();
+        $orderLists = Order::latest()->paginate(5);
         return view('pages.order.orderList' , compact('orderLists'));
     }
 
@@ -31,28 +31,20 @@ class OrderController extends Controller
         //     return redirect()->back()->with('success', 'Cart is empty');
         // }
 
-        // $subtotal = 0;
-        // foreach(session('cart' , []) as $item){
-        //     $subtotal = $subtotal + $item['quantity']*$item['price'];
-
-
-
-        // $orderInfo = new Detail();
-
-        // $orderInfo->product_name = $cart['title'];
-        // $orderInfo->quantity = $cart['quantity'];
-        // $orderInfo->price = $cart['price'];
-        // $orderInfo->subtotal = $subtotal;
-        // $orderInfo->order_id = $orderlist->id;
-
-        // $orderInfo->save();
-
-        // }
-
-
         return view('pages.order.orderInfo' , compact('orderlist'));
-
-
-
     }
+
+    //* Order Passing
+
+    public function passOder($id){
+        Order::find($id)->delete() ;
+        return back()->with('success' , 'Order Passed Successfully!');
+    }
+
+    //* Delet order
+    public function deletOder($id){
+        Order::find($id)->delete();
+        return back()->with('success', 'Order deleted Successfully!');
+    }
+
 }

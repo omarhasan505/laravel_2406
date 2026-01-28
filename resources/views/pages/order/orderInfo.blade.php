@@ -16,7 +16,20 @@
                         <th>Subtotal</th>
                         <th>Order ID</th>
                     </tr>
-                    
+                    @forelse ($orderlist->details as $key => $list)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $list->product_name }}</td>
+                            <td>{{ $list->quantity }}</td>
+                            <td>{{ $list->price }}</td>
+                            <td>{{ $list->subtotal }}</td>
+                            <td>{{ $list->order_id }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-danger text-center">No Product Found</td>
+                        </tr>
+                    @endforelse
                 </table>
             </div>
         </div>

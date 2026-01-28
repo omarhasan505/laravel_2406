@@ -123,6 +123,8 @@ Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 
 Route::prefix('/dashboard/order')->name('orders.')->middleware(['auth' , 'verified'])->group(function(){
     Route::get('/orderList' , [OrderController::class , 'index'])->name('order.list');
     Route::get('/orderInfo/{id}' , [OrderController::class , 'orderInfo'])->name('order.info');
+    Route::get('/passOder/{id}' , [OrderController::class , 'passOder'])->name('order.passed');
+    Route::get('/deletOder/{id}' , [OrderController::class , 'deletOder'])->name('order.delet');
 });
 
 

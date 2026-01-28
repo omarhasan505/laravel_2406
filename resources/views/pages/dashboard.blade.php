@@ -45,14 +45,14 @@
 
     @stack('backend_css')
 
-    <link rel="stylesheet" href="{{asset('backend/assets/vendor/fonts/boxicons.css')}}" />
-    <link rel="stylesheet" href="{{asset('backend/assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{asset('backend/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="{{asset('backend/assets/css/demo.css')}}" />
-    <link rel="stylesheet" href="{{asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
-    <link rel="stylesheet" href="{{asset('backend/assets/vendor/libs/apex-charts/apex-charts.css')}}" />
-    <script src="{{asset('backend/assets/vendor/js/helpers.js')}}"></script>
-    <script src="{{asset('backend/assets/js/config.js')}}"></script>
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/fonts/boxicons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
+    <script src="{{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/config.js') }}"></script>
 
 </head>
 
@@ -134,7 +134,7 @@
                     </li>
 
                     <!-- Layouts -->
-                    <li class="menu-item {{ Route::is('rolePermission.*') ? 'active open' : ''}}  ">
+                    <li class="menu-item {{ Route::is('rolePermission.*') ? 'active open' : '' }}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <iconify-icon icon="basil:key-outline" width="24" height="24"></iconify-icon>
                         &nbsp; &nbsp;
@@ -165,7 +165,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item {{ Route::is('category.*') ? 'active open' : ''}}  ">
+                    <li class="menu-item {{ Route::is('category.*') ? 'active open' : '' }}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                            <iconify-icon icon="material-symbols:category-search-outline-rounded" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
                             <div data-i18n="Layouts">Categories</div>
@@ -188,7 +188,7 @@
                         </ul>
                     </li>
 
-                     <li class="menu-item {{ Route::is('products.*') ? 'active open' : ''}}  ">
+                     <li class="menu-item {{ Route::is('products.*') ? 'active open' : '' }}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="ant-design:product-outlined" width="24" height="24"></iconify-icon> &nbsp; &nbsp;
                             <div data-i18n="Layouts">Products</div>
@@ -220,7 +220,25 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item {{ Route::is('orm.*') ? 'active open' : ''}}  ">
+                     <li class="menu-item {{ Route::is('orders.*') ? 'active open' : '' }}  ">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <iconify-icon icon="lets-icons:order" width="24" height="24"></iconify-icon>&nbsp; &nbsp;
+                            <div data-i18n="Layouts">Orders</div>
+                        </a>
+
+                        <ul class="menu-sub">
+                            <li class="menu-item {{ Route::is('orders.order.list') ? 'active open' : '' }} ">
+                                <a href="{{ route('orders.order.list') }}" class="menu-link">
+                                    <div data-i18n="Without menu">Order List</div>
+                                </a>
+                            </li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <li class="menu-item {{ Route::is('orm.*') ? 'active open' : '' }}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="tabler:circles-relation" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
                             <div data-i18n="Layouts">Relation</div>
@@ -291,7 +309,7 @@
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src=" {{ Auth::User()->avatar ?  asset('storage/' . auth()->user()->avatar) : 'https://api.dicebear.com/9.x/initials/svg?seed=user' }}" alt class="w-px-40 h-40 rounded-circle" />
+                                        <img src=" {{ Auth::User()->avatar ? asset('storage/' . auth()->user()->avatar) : 'https://api.dicebear.com/9.x/initials/svg?seed=user' }}" alt class="w-px-40 h-40 rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -367,14 +385,14 @@
 
 
 
-    <script src="{{asset('backend/assets/vendor/libs/jquery/jquery.js')}}"></script>
-    <script src="{{asset('backend/assets/vendor/libs/popper/popper.js')}}"></script>
-    <script src="{{asset('backend/assets/vendor/js/bootstrap.js')}}"></script>
-    <script src="{{asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('backend/assets/vendor/js/menu.js')}}"></script>
-    <script src="{{asset('backend/assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-    <script src="{{asset('backend/assets/js/main.js')}}"></script>
-    <script src="{{asset('backend/assets/js/dashboards-analytics.js')}}"></script>
+    <script src="{{ asset('backend/assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/js/menu.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

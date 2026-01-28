@@ -120,8 +120,9 @@ Route::prefix('/dashboard/categories')->name('category.')->middleware(['auth' , 
 
 });
 
-Route::prefix('/dashboard/order')->name('order')->middleware(['auth' , 'verified'])->group(function(){
+Route::prefix('/dashboard/order')->name('orders.')->middleware(['auth' , 'verified'])->group(function(){
     Route::get('/orderList' , [OrderController::class , 'index'])->name('order.list');
+    Route::get('/orderInfo/{id}' , [OrderController::class , 'orderInfo'])->name('order.info');
 });
 
 

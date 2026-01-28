@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Library\SslCommerz\SslCommerzNotification;
 use App\Models\Category\Category;
 
+use App\Models\Detail\Detail;
+use App\Models\Order\Order;
 use App\Models\Product\Product;
 use function Laravel\Prompts\alert;
 use Illuminate\Http\Request;
@@ -73,6 +75,7 @@ class AddToCartController extends Controller
     public function placeOrder(Request $request)
     {
         // dd($request->all());
+
 
         $request->validate([
             'first_name' => 'required',
@@ -145,8 +148,8 @@ class AddToCartController extends Controller
             $post_data['value_d'] = "ref004";
 
             #Before  going to initiate the payment order status need to insert or update as Pending.
-            $update_product = DB::table('orders')
-                ->where('transaction_id', $post_data['tran_id'])
+            $order = Order::
+                where('transaction_id', $post_data['tran_id'])
                 ->updateOrInsert([
                     'name' => $post_data['cus_name'],
                     'email' => $post_data['cus_email'],
@@ -175,9 +178,10 @@ class AddToCartController extends Controller
 
         $transac_id = uniqid();
 
-        DB::table('orders')
-            ->where('transaction_id',  $transac_id)
-            ->updateOrInsert([
+        //  DB::table('orders')
+            $order = Order::
+            where('transaction_id',  $transac_id)
+            ->create([
                 'name' => $request->first_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -188,6 +192,31 @@ class AddToCartController extends Controller
                 'currency' => "BDT",
                 'quantity' => $currentQuantity,
             ]);
+
+
+        // $orderlist = Order::with('details')->get();
+        // if (!$cart) {
+        //     return redirect()->back()->with('success', 'Cart is empty');
+        // }
+
+        
+
+        $subtotal = 0;
+        foreach ($cart as $item) {
+            $subtotal = $subtotal + $item['quantity'] * $item['price'];
+
+
+
+            $orderInfo = new Detail();
+
+            $orderInfo->product_name = $item['title'];
+            $orderInfo->quantity = $item['quantity'];
+            $orderInfo->price = $item['price'];
+            $orderInfo->subtotal = $subtotal;
+            $orderInfo->order_id = $order ->id;
+
+            $orderInfo->save();
+        }
 
             session()->forget('cart');
 

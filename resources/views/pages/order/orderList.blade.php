@@ -23,7 +23,7 @@
 
                 @forelse ($orderLists as $key => $list)
                     <tr>
-                        <td>{{ ++$key }}</td>
+                        <td>{{ $list->id }}</td>
                         <td>{{ $list->name }}</td>
                         <td>{{ $list->email }}</td>
                         <td>{{ $list->phone }}</td>

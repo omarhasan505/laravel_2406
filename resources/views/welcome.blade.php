@@ -2,7 +2,7 @@
 
 @section('frontend_content')
     <!-- banner part -->
-    
+
     <section id="banner">
         <div class="container">
             <div class="sliders">
@@ -22,7 +22,7 @@
                             <p>
                                 Free shipping on all your order. we deliver, you enjoy
                             </p>
-                            <a href="#">
+                            <a href="{{ route('frontend.shopmore') }}">
                                 Show more
                                 <span>
                                     <iconify-icon icon="tabler:arrow-right" width="24" height="24"></iconify-icon>
@@ -56,7 +56,7 @@
                             <p>
                                 Free shipping on all your order. we deliver, you enjoy
                             </p>
-                            <a href="#">
+                            <a href="{{ route('frontend.shopmore') }}">
                                 Show more
                                 <span>
                                     <iconify-icon icon="tabler:arrow-right" width="24" height="24"></iconify-icon>
@@ -90,7 +90,7 @@
                             <p>
                                 Free shipping on all your order. we deliver, you enjoy
                             </p>
-                            <a href="#">
+                            <a href="{{ route('frontend.shopmore') }}">
                                 Show more
                                 <span>
                                     <iconify-icon icon="tabler:arrow-right" width="24" height="24"></iconify-icon>
@@ -199,10 +199,15 @@
 
                 @foreach ($categories as $category)
                     @forelse ($category->products as $product)
+
                         <div class="single_product_slide col-xl-3 filter {{ $category->title }} All">
                             <div class="img ">
-                                <img class="img-fluid"
-                                    src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+                                <a href="{{ route('frontend.purchase' , $product->id) }}">
+
+                                    <img class="img-fluid"
+                                        src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+
+                                </a>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="details">
@@ -311,7 +316,7 @@
                 </div>
             </div>
             <div class="shoping_btn">
-                <a href="shopping_cart.html">
+                <a href="{{ route('frontend.shopmore') }}">
                     Shop now&nbsp; <span>
                         <iconify-icon icon="lets-icons:arrow-right-light" width="24" height="24"></iconify-icon>
                     </span>

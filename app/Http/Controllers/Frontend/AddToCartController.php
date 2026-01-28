@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\DB;
 class AddToCartController extends Controller
 {
 
+    //* Shop More
+    public function shopmore(){
+
+    $categories = Category::with('products')->get();
+    $featuredProducts = Product::with('images')->get();
+
+        return view('frontend.shop' , compact('categories' , 'featuredProducts'));
+    }
+
     //* Add  to Cart
     public function addToCart($id)
     {
@@ -198,9 +207,9 @@ class AddToCartController extends Controller
         //     return redirect()->back()->with('success', 'Cart is empty');
         // }
 
-        $subtotal = 0;
+        
         foreach ($cart as $item) {
-            $subtotal = $subtotal + $item['quantity'] * $item['price'];
+            $subtotal =  $item['quantity'] * $item['price'];
 
 
 

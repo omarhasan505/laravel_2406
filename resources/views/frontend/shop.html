@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Ecobazar</title>
+   <link rel="shortcut icon" href="./assets/img/fav.png" type="image/x-icon">
+   <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet" />
+
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+   <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+   <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+   <link rel="stylesheet" href="./assets/css/shop.css">
+   <link rel="stylesheet" href="./assets/css/shopResponsiv.css">
+</head>
+
+
+
+
+<body>
+   <header>
+      <!-- *Top Bar Section start -->
+      <section id="topBar">
+         <div class="container">
+            <div class="row align-items-center">
+               <div
+                  class="col-lg-6 col d-flex align-items-center justify-content-lg-start justify-content-center location">
+                  <iconify-icon icon="fluent:location-20-regular"></iconify-icon>
+                  <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
+               </div>
+               <div class="col-lg-6 d-lg-flex d-none align-items-center justify-content-end quickActions">
+                  <form action="">
+                     <select>
+                        <option>Eng</option>
+                        <option>Bn</option>
+                        <option>Hin</option>
+                     </select>
+                     <select>
+                        <option>Usd</option>
+                        <option>Bdt</option>
+                        <option>Rp</option>
+                     </select>
+                  </form>
+                  <a href="Register.html">Sign In / Sign Up</a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- *Top Bar Section end -->
+
+      <!-- *Middle Bar Section Desktop start -->
+      <section id="middleBar" class="d-none d-lg-block">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-3">
+                  <div class="logo">
+                     <a href="index.html"><img class="img-fluid" src="./assets/img/Logo.png"></a>
+                  </div>
+               </div>
+               <div class="col-6 d-flex align-items-center">
+                  <div class="searchBoxLg">
+                     <iconify-icon icon="cuida:search-outline"></iconify-icon>
+                     <input type="search" placeholder="Search">
+                  </div>
+                  <button class="searchBtn" type="button">Search</button>
+               </div>
+               <div class="col-3 d-flex align-items-center justify-content-end actionLinks">
+                  <iconify-icon icon="solar:heart-outline"></iconify-icon>
+                  <!-- *Cart Icon added with sideBar -->
+
+                  <div class="cartIcon">
+                     <button type="button" data-bs-toggle="offcanvas" data-bs-target="#cartSideBar"
+                        aria-controls="offcanvasWithBothOptions">
+                        <iconify-icon icon="lets-icons:bag-alt"></iconify-icon>
+                        <div class="quantity">2</div>
+                     </button>
+                  </div>
+
+
+                  <!-- *Cart Icon added with sideBar -->
+                  <div class="paymentDetails">
+                     <p>Shopping cart:</p>
+                     <h5>$57.00</h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- *!Cart Sidebar Start -->
+         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="cartSideBar"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Shopping Card (2)</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <div class="cardProduct">
+                  <div class="row align-items-center product">
+                     <div class="col-5"><img class="img-fluid" src="./assets/img/product.png" alt=""></div>
+                     <div class="col-6">
+                        <h6>Fresh Indian Orange</h6>
+                        <p>1 kg x <span>12.00</span></p>
+                     </div>
+                     <div class="col-1">
+                        <iconify-icon icon="charm:cross"></iconify-icon>
+                     </div>
+                  </div>
+                  <div class="row align-items-center product">
+                     <div class="col-5"><img class="img-fluid" src="./assets/img/product_1.png" alt=""></div>
+                     <div class="col-6">
+                        <h6>Green Apple</h6>
+                        <p>1 kg x <span>14.00</span></p>
+                     </div>
+                     <div class="col-1">
+                        <iconify-icon icon="charm:cross"></iconify-icon>
+                     </div>
+                  </div>
+               </div>
+               <div class="checkoutBtnBox">
+                  <div class="d-flex justify-content-between">
+                     <span class="cardQuantity">2 Product</span>
+                     <span class="totalPrice">$26.00</span>
+                  </div>
+                  <a class="checkout d-block text-center" href="checkout.html">Checkout</a>
+                  <a class="cart d-block text-center" href="cart.html">Go To Cart</a>
+               </div>
+            </div>
+         </div>
+         <!-- *!Cart Sidebar End -->
+      </section>
+      <!-- *Middle Bar Section Desktop end -->
+
+      <!-- *Middle Bar Section Mobile start -->
+      <section id="middleBarSm" class="d-lg-none">
+         <div class="container">
+            <div class="row align-items-center">
+               <!-- *Menu Sidebar Start-->
+               <div class="col-3">
+                  <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                     aria-controls="offcanvasScrolling">
+                     <iconify-icon icon="gg:menu-left-alt"></iconify-icon>
+                  </button>
+               </div>
+               <!-- *Menu Sidebar End-->
+               <div class="col-6 d-flex justify-content-center">
+                  <div class="logo">
+                     <a href="index.html"><img src="./assets/img/Logo.png" alt=""></a>
+                  </div>
+               </div>
+               <div class="col-3 text-end searchMob">
+                  <iconify-icon icon="cuida:search-outline"></iconify-icon>
+               </div>
+            </div>
+         </div>
+
+         <!-- *Menu sidebar body start -->
+         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasScrollingLabel"><img class="img-fluid"
+                     src="./assets/img/Logo.png" alt=""></h5>
+               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body text-start menuSide">
+               <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li class="shopCollapse">
+                     <div class="row align-items-center">
+                        <div class="col-6"><a href="shop.html">Shop</a></div>
+                        <div class="col-6 text-end">
+                           <iconify-icon icon="ep:arrow-right-bold"></iconify-icon>
+                        </div>
+                     </div>
+                     <nav>
+                        <ul class="shopOpen">
+                           <li><a href="#">Food</a></li>
+                           <li><a href="#">Baby Food & Care</a></li>
+                           <li><a href="#">Home Cleaning</a></li>
+                           <li><a href="#">Beauty & Health</a></li>
+                           <li><a href="#">Fashion & Lifestyle</a></li>
+                           <li><a href="#">Home & Kitchen</a></li>
+                           <li><a href="#">Stationeries</a></li>
+                        </ul>
+                     </nav>
+                  </li>
+                  <li class="shopCollapse">
+                     <div class="row">
+                        <div class="col-6"><a href="#">Pages</a></div>
+                        <div class="col-6 text-end">
+                           <iconify-icon icon="ep:arrow-right-bold"></iconify-icon>
+                        </div>
+                     </div>
+                     <ul class="shopOpen">
+                        <li><a href="#">24/7 Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="blog.html">Blog</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+               </ul>
+            </div>
+         </div>
+         <!-- *Menu sidebar body End -->
+
+         <!-- *Search Box Mobile Start Here -->
+         <section id="searchBoxMobile" class="searchBoxMobile">
+            <div class="container">
+               <div class="closeBtnSearch">
+                  <iconify-icon icon="charm:cross"></iconify-icon>
+               </div>
+               <div class="row">
+                  <div class="col d-flex searchBoxMenu">
+                     <iconify-icon icon="majesticons:search-line"></iconify-icon>
+                     <input type="search" placeholder="Search">
+                     <button>Search</button>
+                  </div>
+               </div>
+               <div class="searchResult">
+                  <p>Showing Result for: <span>Search</span></p>
+               </div>
+               <div class="row">
+                  <div class="col-6 searchProductCnt">
+                     <a href="#"><img class="img-fluid" src="./assets/img/Product Image.png"></a>
+                     <div class="productDetails">
+                        <h5>Indian Green Apple</h5>
+                        <p>$14.99 <del>$20.99</del></p>
+                     </div>
+                  </div>
+                  <div class="col-6 searchProductCnt">
+                     <a href="#"><img class="img-fluid" src="./assets/img/Product Image (1).png"></a>
+                     <div class="productDetails">
+                        <h5>Surjapur Mango</h5>
+                        <p>$14.99</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!-- *Search Box Mobile End Here -->
+      </section>
+      <!-- *Middle Bar Section Mobile end -->
+
+      <!-- *Bottom NavBar Mobile Start -->
+      <section id="bottomNavBar" class="bottomNavBar d-lg-none">
+         <div class="container">
+            <div class="row justify-content-evenly align-items-center mt-3">
+               <div class="col-3 ">
+                  <a href="index.html">
+                     <iconify-icon icon="lucide:home"></iconify-icon>
+                  </a>
+               </div>
+               <div class="col-3 active">
+                  <a href="shop.html">
+                     <iconify-icon icon="mage:shop"></iconify-icon>
+                  </a>
+               </div>
+               <div class="col-3">
+                  <a href="cart.html">
+                     <iconify-icon icon="lets-icons:bag-alt"></iconify-icon>
+                  </a>
+               </div>
+               <div class="col-3">
+                  <a href="Register.html">
+                     <iconify-icon icon="basil:user-outline"></iconify-icon>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- *Bottom NavBar Mobile End -->
+
+
+      <!-- *Desktop Nav Bar Start -->
+      <section id="nabBarDesk">
+         <nav class="d-none d-lg-block navBarDesktop">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="col-3">
+                     <div class="dropdown">
+                        <button class="categoryDrop d-flex align-items-center justify-content-evenly" type="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                           <iconify-icon icon="lucide:menu"></iconify-icon><span>All
+                              Categories</span><iconify-icon icon="iconamoon:arrow-down-2-thin"></iconify-icon>
+                        </button>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">Food</a></li>
+                           <li><a class="dropdown-item" href="#">Baby Food & Care</a></li>
+                           <li><a class="dropdown-item" href="#">Home Cleaning</a></li>
+                           <li><a class="dropdown-item" href="#">Beauty & Health</a></li>
+                           <li><a class="dropdown-item" href="#">Fashion & Lifestyle</a></li>
+                           <li><a class="dropdown-item" href="#">Home & Kitchen</a></li>
+                           <li><a class="dropdown-item" href="#">Stationeries</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-7 middleNav">
+                     <ul class="d-flex align-items-center justify-content-start">
+                        <li><a class="" href="index.html">Home</a></li>
+                        <li class="desktopParent">
+                           <a class="d-flex align-items-center active" href="shop.html">Shop <iconify-icon
+                                 icon="iconamoon:arrow-down-2-bold"></iconify-icon></a>
+                           <ul class="desktopChild">
+                              <li><a href="#">Food</a></li>
+                              <li><a href="#">Baby Food & Care</a></li>
+                              <li><a href="#">Home Cleaning</a></li>
+                              <li><a href="#">Beauty & Health</a></li>
+                              <li><a href="#">Fashion & Lifestyle</a></li>
+                              <li><a href="#">Home & Kitchen</a></li>
+                              <li><a href="#">Stationeries</a></li>
+                           </ul>
+                        </li>
+                        <li class="desktopParent"><a class="d-flex align-items-center" href="#">Pages
+                              <iconify-icon icon="iconamoon:arrow-down-2-bold"></iconify-icon></a>
+                           <ul class="desktopChild">
+                              <li><a href="#">24/7 Support</a></li>
+                              <li><a href="#">Privacy Policy</a></li>
+                           </ul>
+                        </li>
+                        <li><a class="" href="blog.html">Blog</a></li>
+                        <li><a class="" href="about.html">About Us</a></li>
+                        <li><a class="" href="contact.html">Contact Us</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-2 d-flex align-items-center quickCall">
+                     <iconify-icon icon="ph:phone-call-light"></iconify-icon>
+                     <a href="tel:219555-0114">(219) 555-0114</a>
+                  </div>
+               </div>
+            </div>
+         </nav>
+      </section>
+      <!-- *Desktop Nav Bar End -->
+   </header>
+   <main>
+      <!-- *Breadcrumbs Start Here -->
+      <section id="Breadcrumbs">
+         <div class="container">
+            <ul>
+               <li class="d-flex align-items-center">
+                  <a href="index.html" class="homeIcom">
+                     <iconify-icon icon="fluent:home-16-regular" width="20" height="22"></iconify-icon>
+                  </a>
+                  <iconify-icon icon="formkit:right" width="15" height="15" style="color: #999"></iconify-icon>
+               </li>
+               <li class="d-flex align-items-center">
+                  <a href="shop.html" class="active">Shop</a>
+               </li>
+
+            </ul>
+         </div>
+      </section>
+      <!-- *Breadcrumbs End Hear -->
+
+
+
+      <section id="allProduct">
+         <div class="container">
+            <div class="row">
+               <!-- *Filtering Start Here -->
+               <section id="filtering" class="col-lg-3 d-lg-block d-none">
+                  <div class="filterBtn">
+                     <button type="button">Filter
+                     </button>
+                     <span>
+                        <iconify-icon icon="rivet-icons:filter" width="20" height="20"></iconify-icon>
+                     </span>
+                  </div>
+                  <!-- *All Categories Radio Buttons Start Here-->
+                  <div class="categories">
+                     <div class="row align-items-center categoreBtn">
+                        <div class="col-6 radioParent"><a type="button">All Categories</a></div>
+                        <div class="col-6 text-end">
+                           <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                        </div>
+                     </div>
+                     <li class="shopCollapse">
+                        <ul class="shopOpen active">
+                           <li class="d-flex align-items-center All">
+                              <input type="radio" id="All" name="Categories" checked>
+                              <label for="All">All</label>
+                           </li>
+                           <li class="d-flex align-items-center freshFruit">
+                              <input type="radio" id="Fresh" name="Categories">
+                              <label for="Fresh">Fresh Fruit </span></label>
+                           </li>
+
+                        </ul>
+                     </li>
+                  </div>
+                  <!-- *All Categories Radio Buttons End Here-->
+                  <!-- *Price Range Slider Start Here -->
+                  <div class="priceBox">
+                     <div class="col-12 d-flex justify-content-between priceBtn">
+                        <span>Price</span>
+                        <span>
+                           <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                        </span>
+                     </div>
+                     <div class="priceRangeWrapper">
+                        <div class="priceRangeOpen active">
+                           <div class="slider-wrapper">
+                              <div class="range-input">
+                                 <input type="range" class="min-range" min="0" max="10000" value="2500" step="1">
+                                 <input type="range" class="max-range" min="0" max="10000" value="8500" step="1">
+                              </div>
+                              <div class="slider-container">
+                                 <div class="price-slider">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="price-input-container">
+                              <div class="price-input">
+                                 <span>Price :</span>
+                                 <input type="number" class="min-input price-value" value="2500">
+                                 <iconify-icon icon="tabler:minus"></iconify-icon>
+                                 <input type="number" class="max-input price-value" value="8500" readonly>
+                                 <div class="price-field">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- *Price Range Slider End Here-->
+                  <!-- *Rating Stert Here-->
+                  <div class="rating">
+                     <div class="row align-items-center ratingBtn">
+                        <div class="col-6 ratingParent"><a type="button">Rating</a></div>
+                        <div class="col-6 text-end">
+                           <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                        </div>
+                     </div>
+                     <li class="shopCollapse">
+                        <ul class="ratingOpen active">
+                           <li class="d-flex align-items-center">
+                              <input type="radio" id="fiveStar" name="Categories">
+                              <label for="fiveStar">
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <span>5.0</span>
+                              </label>
+                           </li>
+                           <li class="d-flex align-items-center">
+                              <input type="radio" id="ForStar" name="Categories">
+                              <label for="ForStar">
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <span>4.0 & up</span>
+                              </label>
+                           </li>
+                           <li class="d-flex align-items-center">
+                              <input type="radio" id="threeStar" name="Categories">
+                              <label for="threeStar">
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <span>3.0 & up</span>
+                              </label>
+                           </li>
+                           <li class="d-flex align-items-center">
+                              <input type="radio" id="tweStar" name="Categories">
+                              <label for="tweStar">
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <span>2.0 & up</span>
+                              </label>
+                           </li>
+                           <li class="d-flex align-items-center">
+                              <input type="radio" id="oneStar" name="Categories">
+                              <label for="oneStar">
+                                 <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                                 <span>1.0 & up</span>
+                              </label>
+                           </li>
+
+
+                        </ul>
+                     </li>
+                  </div>
+                  <!-- *Rating End Here-->
+
+                  <!-- *Popular Tag End Here-->
+                  <div class="popular">
+                     <div class="row align-items-center popularBtn">
+                        <div class="col-6 popularParent"><a type="button">Popular Tag</a></div>
+                        <div class="col-6 text-end">
+                           <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                        </div>
+                     </div>
+                     <div class="popularCollapse">
+                        <div class="popularTagBox active">
+                           <span class="popularTag">Healthy</span>
+                           <span class="popularTag">Low fat</span>
+                           <span class="popularTag active">Vegetarian</span>
+                           <span class="popularTag">Kid foods</span>
+                           <span class="popularTag">Vitamins</span>
+                           <span class="popularTag">Bread</span>
+                           <span class="popularTag">Meat</span>
+                           <span class="popularTag">Snacks</span>
+                           <span class="popularTag">Tiffin</span>
+                           <span class="popularTag">Launch</span>
+                           <span class="popularTag">Dinner</span>
+                           <span class="popularTag">Breackfast</span>
+                           <span class="popularTag">Fruit</span>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- *Popular Tag End Here-->
+
+                  <!-- *Discount AD Start Here -->
+                  <section id="discount">
+                     <a href="" class="textBox">
+                        <h2 class="text-center"><span>79%</span> Discount</h2>
+                        <p>on your first order</p>
+                        <span class="text-center d-block">
+                           <span>Shop Now</span>
+                           <iconify-icon icon="ep:right"></iconify-icon>
+                        </span>
+                     </a>
+                  </section>
+                  <!-- *Discount AD End Here -->
+
+                  <!-- *Best Sale Products End Hear -->
+                  <section id="saleProducts">
+                     <h3>Sale Products</h3>
+                     <div class="seleCard">
+                        <a href="#">
+                           <div class="row">
+                              <img class="col-4 img-fluid" src="./assets/img/Green.png" alt="">
+                              <div class="col-8">
+                                 <h4>Red Capsicum</h4>
+                                 <span>$32.00 <del>$20.99</del></span>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="seleCard">
+                        <a href="#">
+                           <div class="row">
+                              <img class="col-4 img-fluid" src="./assets/img/FreshMango.png" alt="">
+                              <div class="col-8">
+                                 <h4>Red Capsicum</h4>
+                                 <span>$32.00 <del>$20.99</del></span>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="seleCard">
+                        <a href="#">
+                           <div class="row">
+                              <img class="col-4 img-fluid" src="./assets/img/GreenCapsicum.png" alt="">
+                              <div class="col-8">
+                                 <h4>Red Capsicum</h4>
+                                 <span>$32.00 <del>$20.99</del></span>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                  </section>
+                  <!-- *Best Sale Products End Hear -->
+
+
+               </section>
+               <!-- *Filtering End Hear -->
+
+               <!--  *Proeduct Start Here -->
+               <section id="product" class="col-lg-9 col-12">
+                  <!-- *category Start Here -->
+                  <section id="category">
+                     <div class="row">
+                        <div class="sortBox col-lg-6 col-12">
+                           <div class="row align-items-center">
+                              <div class="col-lg-12 col-8">
+                                 <span>Sort by :</span>
+                                 <select>
+                                    <option value="1">Latest</option>
+                                 </select>
+                              </div>
+                              <div class="filterMdBtn text-end d-inline d-lg-none d-block col-4">
+                                 <button type="button">
+                                    <span>
+                                       <iconify-icon icon="rivet-icons:filter" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </button>
+
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-6">
+                           <h6 class="text-lg-end text-start mt-2 mt-lg-0"><span>52</span>Results Found</h6>
+                        </div>
+                     </div>
+                  </section>
+
+                  <!-- *Product Card Box Start Here -->
+                  <section id="ProductCardBox">
+                     <div class="row justify-content-center">
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Image.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Big Potatos</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Chanise.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Chanise Cabbage</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart FruitCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Ladies.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Ladies Finger</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                           <!-- *Label Start Here -->
+                           <div class="label">
+                              <span>Out of Stock</span>
+                           </div>
+                           <!-- *Label End Here -->
+
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Eggplant.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Eggplant</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart CookingCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Fresh.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Fresh Cauliflower</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart FruitCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/GreenApple.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Apple</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/GreenCapsicum.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Capsicum</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/GreenChili.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Chili</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/GreenCucumber.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Cucumber</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart CookingCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/GreenLittuce.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Littuce</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/LadiesFinger.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Ladies Finger</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/Green.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Green Capsicum</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/RedChili.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Red Chili</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart VegetablesCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/RedTomato.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Red Tomato</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                        <div class="cart FruitCard">
+                           <a href="#">
+                              <div class="imgBox">
+                                 <img class="img-fluid" src="./assets/img/FreshMango.png" alt="">
+                              </div>
+                              <div class="details">
+                                 <a href="#">Fresh Mango</a>
+                                 <div class="priceAndCard d-flex align-items-center justify-content-between">
+                                    <div class="price">
+                                       <span class="col-2">$14.99</span>
+                                       <span class="col-3 oldPrice">$20.99</span>
+                                    </div>
+                                    <span class="text-end col-6 addCatdBtn">
+                                       <iconify-icon icon="ph:handbag" width="20" height="20"></iconify-icon>
+                                    </span>
+                                 </div>
+                                 <div class="review">
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                                    <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                       style="color: #b3b3b3"></iconify-icon>
+                                 </div>
+                              </div>
+                           </a>
+
+                           <!-- *Hover Effect Start Here -->
+
+                           <div class="iconBox">
+                              <div class="Wishlist">
+                                 <iconify-icon icon="meteor-icons:heart" width="20" height="20"></iconify-icon>
+                              </div>
+                              <div class="View">
+                                 <iconify-icon icon="ant-design:eye-outlined" width="20" height="20"></iconify-icon>
+                              </div>
+                           </div>
+
+                           <!-- *Hover Effect End Here -->
+
+                        </div>
+                     </div>
+                     <div class="nextPage">
+                        <div class="d-flex justify-content-center">
+                           <span class="leftPage">
+                              <iconify-icon icon="iconamoon:arrow-left-2-light" width="24" height="24"></iconify-icon>
+                           </span>
+                           <span class="next active">1</span>
+                           <span class="next">2</span>
+                           <span class="next">3</span>
+                           <span class="next">4</span>
+                           <span class="next">5</span>
+                           <span class="rightPage">
+                              <iconify-icon icon="iconamoon:arrow-right-2-light" width="24" height="24"></iconify-icon>
+                           </span>
+                        </div>
+                     </div>
+                  </section>
+                  <!-- *Product Card Box End Hear -->
+                  <!-- *category End Hear -->
+               </section>
+               <!-- *Product End Hear -->
+            </div>
+         </div>
+      </section>
+
+      <!-- *Filtering Mobile Start Here -->
+      <div class="filterSlider d-lg-none col-block">
+         <div class="filterCotant">
+            <button type="button" class="filterClose">
+               <iconify-icon icon="iconoir:cancel"></iconify-icon>
+            </button>
+            <!-- *Filtering Start Here -->
+            <section id="filtering" class="col-12 d-block">
+               <div class="filterBtn">
+                  <button type="button">Filter
+                  </button>
+                  <span>
+                     <iconify-icon icon="rivet-icons:filter" width="20" height="20"></iconify-icon>
+                  </span>
+               </div>
+               <!-- *All Categories Radio Buttons Start Here-->
+               <div class="categories">
+                  <div class="row align-items-center categoreBtn">
+                     <div class="col-lg-6 col-8 radioParent"><a type="button">All Categories</a></div>
+                     <div class="col-lg-6 col-4 text-end">
+                        <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                     </div>
+                  </div>
+                  <li class="shopCollapse">
+                     <ul class="shopOpen active">
+                        <li class="d-flex align-items-center All">
+                           <input type="radio" id="AllMobile" name="Categories">
+                           <label for="AllMobile">All(52)<span>(134)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center freshFruit">
+                           <input type="radio" id="FreshMobile" name="Categories">
+                           <label for="FreshMobile">Fresh Fruit (25)<span>(134)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center vegetable">
+                           <input type="radio" id="VegetablesMobile" name="Categories">
+                           <label for="VegetablesMobile">Vegetables<span>(150)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center cooking">
+                           <input type="radio" id="CookingMobile" name="Categories">
+                           <label for="CookingMobile">Cooking<span>(54)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center snacking">
+                           <input type="radio" id="SnacksMobile" name="Categories">
+                           <label for="SnacksMobile">Snacks<span>(47)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center beverage">
+                           <input type="radio" id="BeveragesMobile" name="Categories">
+                           <label for="BeveragesMobile">Beverages<span>(43)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center health">
+                           <input type="radio" id="BeautyMobile" name="Categories">
+                           <label for="BeautyMobile">Beauty & Health<span>(38)</span></label>
+                        </li>
+                        <li class="d-flex align-items-center bread" class="d-flex align-items-center">
+                           <input type="radio" id="BreadMobile" name="Categories">
+                           <label for="BreadMobile">Bread & Bakery<span>(15)</span></label>
+                        </li>
+                     </ul>
+                  </li>
+               </div>
+               <!-- *All Categories Radio Buttons End Here-->
+               <!-- *Price Range Slider Start Here -->
+               <div class="priceBox">
+                  <div class="col-12 d-flex justify-content-between priceBtn">
+                     <span>Price</span>
+                     <span>
+                        <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                     </span>
+                  </div>
+                  <div class="priceRangeWrapper">
+                     <div class="priceRangeOpen active">
+                        <div class="slider-wrapper">
+                           <div class="range-input">
+                              <input type="range" class="min-range" min="0" max="10000" value="2500" step="1">
+                              <input type="range" class="max-range" min="0" max="10000" value="8500" step="1">
+                           </div>
+                           <div class="slider-container">
+                              <div class="price-slider">
+                              </div>
+                           </div>
+                        </div>
+                        <div class="price-input-container">
+                           <div class="price-input">
+                              <span>Price :</span>
+                              <input type="number" class="min-input price-value" value="2500">
+                              <iconify-icon icon="tabler:minus"></iconify-icon>
+                              <input type="number" class="max-input price-value" value="8500" readonly>
+                              <div class="price-field">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- *Price Range Slider End Here-->
+               <!-- *Rating Stert Here-->
+               <div class="rating">
+                  <div class="row align-items-center ratingBtn">
+                     <div class="col-6 ratingParent"><a type="button">Rating</a></div>
+                     <div class="col-6 text-end">
+                        <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                     </div>
+                  </div>
+                  <li class="shopCollapse">
+                     <ul class="ratingOpen active">
+                        <li class="d-flex align-items-center">
+                           <input type="radio" id="fiveStar" name="Categories">
+                           <label for="fiveStar">
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <span>5.0</span>
+                           </label>
+                        </li>
+                        <li class="d-flex align-items-center">
+                           <input type="radio" id="ForStar" name="Categories">
+                           <label for="ForStar">
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <span>4.0 & up</span>
+                           </label>
+                        </li>
+                        <li class="d-flex align-items-center">
+                           <input type="radio" id="threeStar" name="Categories">
+                           <label for="threeStar">
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <span>3.0 & up</span>
+                           </label>
+                        </li>
+                        <li class="d-flex align-items-center">
+                           <input type="radio" id="tweStar" name="Categories">
+                           <label for="tweStar">
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <span>2.0 & up</span>
+                           </label>
+                        </li>
+                        <li class="d-flex align-items-center">
+                           <input type="radio" id="oneStar" name="Categories">
+                           <label for="oneStar">
+                              <iconify-icon icon="twemoji:star" width="20" height="20"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                 style="color: #b3b3b3"></iconify-icon>
+                              <span>1.0 & up</span>
+                           </label>
+                        </li>
+
+
+                     </ul>
+                  </li>
+               </div>
+               <!-- *Rating End Here-->
+
+               <!-- *Popular Tag End Here-->
+               <div class="popular">
+                  <div class="row align-items-center popularBtn">
+                     <div class="col-lg-6 col-8 popularParent"><a type="button">Popular Tag</a></div>
+                     <div class="col-lg-6 col-4 text-end">
+                        <iconify-icon icon="ep:arrow-down-bold"></iconify-icon>
+                     </div>
+                  </div>
+                  <div class="popularCollapse">
+                     <div class="popularTagBox active">
+                        <span class="popularTag">Healthy</span>
+                        <span class="popularTag">Low fat</span>
+                        <span class="popularTag active">Vegetarian</span>
+                        <span class="popularTag">Kid foods</span>
+                        <span class="popularTag">Vitamins</span>
+                        <span class="popularTag">Bread</span>
+                        <span class="popularTag">Meat</span>
+                        <span class="popularTag">Snacks</span>
+                        <span class="popularTag">Tiffin</span>
+                        <span class="popularTag">Launch</span>
+                        <span class="popularTag">Dinner</span>
+                        <span class="popularTag">Breackfast</span>
+                        <span class="popularTag">Fruit</span>
+                     </div>
+                  </div>
+               </div>
+               <!-- *Popular Tag End Here-->
+
+               <!-- *Discount AD Start Here -->
+               <section id="discount">
+                  <a href="" class="textBox">
+                     <h2 class="text-center"><span>79%</span> Discount</h2>
+                     <p>on your first order</p>
+                     <span class="text-center d-block">
+                        <span>Shop Now</span>
+                        <iconify-icon icon="ep:right"></iconify-icon>
+                     </span>
+                  </a>
+               </section>
+               <!-- *Discount AD End Here -->
+
+               <!-- *Best Sale Products End Hear -->
+               <section id="saleProducts">
+                  <h3>Sale Products</h3>
+                  <div class="seleCard">
+                     <a href="#">
+                        <div class="row">
+                           <img class="col-4 img-fluid" src="./assets/img/Green.png" alt="">
+                           <div class="col-8">
+                              <h4>Red Capsicum</h4>
+                              <span>$32.00 <del>$20.99</del></span>
+                              <div class="review">
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="seleCard">
+                     <a href="#">
+                        <div class="row">
+                           <img class="col-4 img-fluid" src="./assets/img/FreshMango.png" alt="">
+                           <div class="col-8">
+                              <h4>Red Capsicum</h4>
+                              <span>$32.00 <del>$20.99</del></span>
+                              <div class="review">
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="seleCard">
+                     <a href="#">
+                        <div class="row">
+                           <img class="col-4 img-fluid" src="./assets/img/GreenCapsicum.png" alt="">
+                           <div class="col-8">
+                              <h4>Red Capsicum</h4>
+                              <span>$32.00 <del>$20.99</del></span>
+                              <div class="review">
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="twemoji:star" width="15" height="15"></iconify-icon>
+                                 <iconify-icon icon="heroicons:star-20-solid" width="20" height="20"
+                                    style="color: #b3b3b3"></iconify-icon>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </section>
+               <!-- *Best Sale Products End Hear -->
+
+            </section>
+            <!-- *Filtering End Hear -->
+         </div>
+      </div>
+      <!-- *Filtering Mobile End Here -->
+
+
+   </main>
+   <!-- *Footer Start Here -->
+   <footer>
+      <!-- *Footer top Start Here -->
+      <section id="FooterTop">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-3 leftSide">
+                  <div class="logo d-flex align-items-center">
+                     <img class="img-fluid" src="./assets/img/fav.png" alt="Logo.png"><span>Ecobazar</span>
+                  </div>
+                  <p>Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis dui, eget bibendum magna congue
+                     nec.
+                  </p>
+                  <span><a href="tel:555-0114">(219) 555-0114</a> or</span>
+                  <span><a href="mailto:Proxy@gmail.com">Proxy@gmail.com</a></span>
+               </div>
+               <div class="col-lg-8 rightSide">
+                  <div class="row">
+                     <ul class="col-lg-3 col-6">
+                        <h4>My Account</h4>
+                        <li><a href="">My Account</a></li>
+                        <li><a href="">Order History</a></li>
+                        <li><a href="cart.html">Shoping Cart</a></li>
+                        <li><a href="">Wishlist</a></li>
+                     </ul>
+                     <ul class="col-lg-3 col-6">
+                        <h4>Helps</h4>
+                        <li><a href="">Contact</a></li>
+                        <li><a href="">Faqs</a></li>
+                        <li><a href="">Terms & Condition</a></li>
+                        <li><a href="">Wishlist</a></li>
+                     </ul>
+                     <ul class="col-lg-3 col-6">
+                        <h4>Proxy</h4>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Product</a></li>
+                        <li><a href="">Track Order</a></li>
+                     </ul>
+                     <ul class="col-lg-3 col-6">
+                        <h4>Categories</h4>
+                        <li><a href="">Fruit & Vegetables</a></li>
+                        <li><a href="">Meat & Fish</a></li>
+                        <li><a href="">Bread & Bakery</a></li>
+                        <li><a href="">Beauty & Health</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- *Footer top End Hear -->
+      <!-- *copy Right Start Here -->
+      <section id="copyRight">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-12 col-lg-6">
+                  <p>Ecobazar eCommerce © 2021. All Rights Reserved</p>
+               </div>
+               <div class="col-12 col-lg-6 text-lg-end">
+                  <a href="#">
+                     <img src="./assets/img/ApplePay.png" alt="">
+                  </a>
+                  <a href="#">
+                     <img src="./assets/img/Visa.png" alt="">
+                  </a>
+                  <a href="#">
+                     <img src="./assets/img/Discover.png" alt="">
+                  </a>
+                  <a href="#">
+                     <img src="./assets/img/Mastercard.png" alt="">
+                  </a>
+                  <a href="#">
+                     <img src="./assets/img/Cart.png" alt="">
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- *copy Right End Hear -->
+   </footer>
+   <!-- *Footer End Hear -->
+
+
+   <script src="./assets/js/bootstrap.bundle.min.js"></script>
+   <script src="./assets/js/jquery-3.7.1.min.js"></script>
+   <script src="./assets/js/main.js"></script>
+   <script src="./assets/js/shop.js"></script>
+</body>
+
+</html>

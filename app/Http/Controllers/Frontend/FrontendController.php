@@ -18,4 +18,13 @@ class FrontendController extends Controller
 
         return view('welcome', compact('featuredProducts', 'categories'));
     }
+
+    public function purchase($id){
+
+    $categories = Category::with('products')->get();
+    $featuredProducts = Product::with('images')->find($id);
+
+    return view('frontend.purchase' , compact('featuredProducts', 'categories') );
+
+    }
 }

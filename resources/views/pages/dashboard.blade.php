@@ -238,7 +238,7 @@
                         </ul>
                     </li>
 
-                    <li class="menu-item {{ Route::is('orm.*') ? 'active open' : '' }}  ">
+                    {{-- <li class="menu-item {{ Route::is('orm.*') ? 'active open' : '' }}  ">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <iconify-icon icon="tabler:circles-relation" width="24" height="24"></iconify-icon>  &nbsp; &nbsp;
                             <div data-i18n="Layouts">Relation</div>
@@ -268,7 +268,7 @@
 
 
                         </ul>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </aside>

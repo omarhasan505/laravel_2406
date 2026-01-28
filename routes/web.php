@@ -138,6 +138,8 @@ Route::name('frontend.')->group(function(){
     Route::get('/deletCart/{id}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
     Route::get('/checkoutCart' , [AddToCartController::class, 'checkoutCart'])->name('checkoutCart');
     Route::post('/placeOrder' , [AddToCartController::class, 'placeOrder'])->name('placeOrder');
+    Route::get('/shopmore' , [AddToCartController::class, 'shopmore'])->name('shopmore');
+    Route::get('/purchase/{id}' , [FrontendController::class, 'purchase'])->name('purchase');
 });
 
 

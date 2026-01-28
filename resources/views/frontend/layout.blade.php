@@ -16,7 +16,7 @@
 
 
     <!-- css part -->
-    {{-- @stack('backend_css') --}}
+    @stack('frontend_css')
 
 
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/venobox.css') }}">
@@ -233,7 +233,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         @forelse ($categories as $category)
 
-                        <li><a class="dropdown-item" href="#">{{ $category->title }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('frontend.shopmore') }}">{{ $category->title }}</a></li>
                         @empty
                         <li><p class="text-danger mb-0">No Category found!</p></li>
 
@@ -363,7 +363,8 @@
                 </a>
             </div>
             <div class="col-2">
-                <a href="#">
+                <a href="#" data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <span>
                         <iconify-icon icon="famicons:cart" width="24" height="24"></iconify-icon>
                     </span>
@@ -704,6 +705,9 @@
     <!-- js part -->
 
     @stack('frontend_js')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script src="{{ asset('frontend/assets/js/jquery-3.7.1.min.js') }}"></script>
 

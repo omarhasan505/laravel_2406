@@ -157,8 +157,8 @@
                                     <div data-i18n="Without menu">Create Role</div>
                                 </a>
                             </li>
-                            <li class="menu-item {{ Route::is('rolePermission.user.role.list') ? 'active open' : '' }}">
-                                <a href="{{ route('rolePermission.user.role.list') }}" class="menu-link">
+                            <li class="menu-item {{ Route::is('rolePermission.list.role') ? 'active open' : '' }}">
+                                <a href="{{ route('rolePermission.list.role') }}" class="menu-link">
                                     <div data-i18n="Without menu">Role List</div>
                                 </a>
                             </li>

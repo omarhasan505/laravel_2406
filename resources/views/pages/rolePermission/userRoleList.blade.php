@@ -9,9 +9,9 @@
     </div>
 
     <div class="card-body text-center">
-
-
-
+        <form action="{{ route('rolePermission.user.role.store' ) }}" method="post">
+            <input  type="hidden" name="user_id" value="{{ $users->id }}">
+            @csrf
             <table class=" table table-bordered table-striped">
             <tr>
                 <th>
@@ -24,37 +24,31 @@
                     Action
                 </th>
             </tr>
-            @forelse ($users as $key => $role)
+            @forelse ($user_role as $key => $role)
 
             <tr>
                 <td>
                     {{ ++$key }}
                 </td>
                 <td>
-
+                    <label for="role_{{ $role->id }}">
                         {{ $role->name }}
-
+                    </label>
 
                 </td>
                 <td>
-                    {{-- <label for="role_{{$role->id}}">
+                    <label for="role_{{$role->id}}">
                         <input   type="checkbox" name="roles[]" value="{{$role->name}}" id="role_{{ $role->id }}"  {{ $users->hasRole($role->name) ? 'checked' : '' }}>
-                    </label> --}}
-                    <a href="{{ route('rolePermission.user.permission.list' , $role->id) }}" style="color: #4e00c388"><iconify-icon icon="ic:round-key" width="30" height="30"></iconify-icon></a>
+                    </label>
                 </td>
             </tr>
 
             @empty
-            <tr>
-                <td colspan="2">
-                    No Role Found!
-                </td>
-            </tr>
 
             @endforelse
         </table>
-
-
+        <button type="submit" class="btn btn-primary w-100 mt-3">Assign Role</button>
+        </form>
     </div>
     </div>
 

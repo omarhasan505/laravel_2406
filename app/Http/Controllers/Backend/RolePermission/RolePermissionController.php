@@ -20,8 +20,14 @@ class RolePermissionController extends Controller
 
    //* Role list
    public function roleList(){
+        $user_role = Role::get();
+    return view('pages.rolePermission.roleList' , compact('user_role'));
+   }
 
-    return view('pages.rolePermission.roleList');
+   //*  Deletting Role
+   public function roleListDelet($id){
+    Role::find($id)->delete();
+    return back();
    }
 
    //* Creating Role For Users
@@ -47,7 +53,7 @@ class RolePermissionController extends Controller
     {
         $users = User::find($id);
         $user_role = Role::get();
-        return view('pages.rolePermission.roleList', compact('user_role', 'users'));
+        return view('pages.rolePermission.userRoleList', compact('user_role', 'users'));
     }
 
    //* storing user Role

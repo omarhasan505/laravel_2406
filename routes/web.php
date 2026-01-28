@@ -49,6 +49,7 @@ Route::prefix('/dashboard/rolePermission')->name('rolePermission.')->middleware(
     Route::get('/createRole' , [RolePermissionController::class, 'createRole'])->name('create.role');
     Route::post('/createRole' , [RolePermissionController::class, 'storeRole'])->name('store.role');
     Route::get('/roleList' , [RolePermissionController::class, 'roleList'])->name('list.role');
+    Route::get('/roleListDelet/{id}' , [RolePermissionController::class, 'roleListDelet'])->name('list.role.delet');
     Route::get('/userRole/{id}' , [RolePermissionController::class, 'userRole'])->name('user.role');
     Route::post('/userRole' , [RolePermissionController::class, 'userRoleStore'])->name('user.role.store');
     Route::get('/userRoleList' , [RolePermissionController::class, 'userRoleList'])->name('user.role.list');

@@ -171,6 +171,24 @@ class AddToCartController extends Controller
                 'quantity' => $currentQuantity,
                 ]);
 
+
+            foreach ($cart as $item) {
+                $subtotal =  $item['quantity'] * $item['price'];
+
+
+
+                $orderInfo = new Detail();
+
+                $orderInfo->product_name = $item['title'];
+                $orderInfo->quantity = $item['quantity'];
+                $orderInfo->price = $item['price'];
+                $orderInfo->subtotal = $subtotal;
+                $orderInfo->order_id = $order->id;
+
+                $orderInfo->save();
+            }
+
+
             $sslc = new SslCommerzNotification();
             # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
             $payment_options = $sslc->makePayment($post_data, 'hosted');
@@ -207,7 +225,7 @@ class AddToCartController extends Controller
         //     return redirect()->back()->with('success', 'Cart is empty');
         // }
 
-        
+
         foreach ($cart as $item) {
             $subtotal =  $item['quantity'] * $item['price'];
 

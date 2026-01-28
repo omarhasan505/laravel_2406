@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 // use DB;
 use App\Library\SslCommerz\SslCommerzNotification;
+use App\Models\Detail\Detail;
+use App\Models\Order\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 // use Illuminate\Routing\Controller;
@@ -172,6 +174,10 @@ class SslCommerzPaymentController extends Controller
 
         $sslc = new SslCommerzNotification();
 
+        // $order = Order::where('transaction_id', $tran_id)->first();
+
+
+
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
@@ -190,7 +196,14 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Processing']);
 
-                echo "<br >Transaction is successfully Completed";
+                    // $order = Order:: where('transaction_id', $tran_id)->first();
+
+                // $order->update(['status' => 'Processing']);
+
+                // session()->forget('cart');
+
+                // echo "<br >Transaction is successfully Completed";
+                return redirect()->route('frontend.featured')->with('success' , 'Payment Successful!');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             /*
@@ -201,6 +214,8 @@ class SslCommerzPaymentController extends Controller
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
         }
+
+
 
 
     }

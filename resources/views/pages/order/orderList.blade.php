@@ -18,6 +18,7 @@
                     <th>Amount</th>
                     <th>Transaction ID</th>
                     <th>Order Details</th>
+                    <th>status</th>
                     <th>Action</th>
                 </tr>
 
@@ -34,6 +35,7 @@
                         <td>
                             <a href="{{ route('orders.order.info', $list->id) }}" class="btn btn-primary p-2 w-100">Info</a>
                         </td>
+                        <td>{{ $list->status }}</td>
                         <td class=" d-flex justify-content-between align-items-center ">
                             <a href="{{ route('orders.order.passed', $list->id) }}" class="p-2 mx-1">
                                 <iconify-icon icon="icon-park-outline:file-success" width="24" height="24"

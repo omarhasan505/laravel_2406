@@ -35,17 +35,27 @@
                         <td>
                             <a href="{{ route('orders.order.info', $list->id) }}" class="btn btn-primary p-2 w-100">Info</a>
                         </td>
-                        <td>{{ $list->status }}</td>
+                        <td class=" {{ $list->status == 'completed' ? 'text-success text-uppercase' : 'text-primary' }}"> <strong>{{ $list->status }}</strong></td>
+
+                        @if ($list->status == 'completed')
+                            <td class=" d-flex justify-content-center align-items-center ">
+                                <iconify-icon icon="el:ok" width="30" height="30" class="mt-2 text-success" ></iconify-icon>
+                            </td>
+                        @else
+
                         <td class=" d-flex justify-content-between align-items-center ">
                             <a href="{{ route('orders.order.passed', $list->id) }}" class="p-2 mx-1">
                                 <iconify-icon icon="icon-park-outline:file-success" width="24" height="24"
-                                    class="text-success"></iconify-icon>
+                                    class="text-primary"></iconify-icon>
                             </a>
                             <a href="{{ route('orders.order.delet', $list->id) }}" class="p-2 mx-1">
                                 <iconify-icon icon="maki:cross" width="24" height="24"
                                     class="text-danger"></iconify-icon>
                             </a>
                         </td>
+                        @endif
+
+
                     </tr>
                 @empty
                 @endforelse

@@ -11,9 +11,10 @@ class OrderController extends Controller
 {
     //* getting order
 
-    public function index(){
+    public function index()
+    {
         $orderLists = Order::latest()->paginate(5);
-        return view('pages.order.orderList' , compact('orderLists'));
+        return view('pages.order.orderList', compact('orderLists'));
     }
 
     //* details send to database
@@ -22,7 +23,8 @@ class OrderController extends Controller
 
     //* order info
 
-    public function orderInfo($id){
+    public function orderInfo($id)
+    {
         $orderlist = Order::with('details')->find($id);
 
         // $cart = session('cart' , []);
@@ -31,20 +33,27 @@ class OrderController extends Controller
         //     return redirect()->back()->with('success', 'Cart is empty');
         // }
 
-        return view('pages.order.orderInfo' , compact('orderlist'));
+        return view('pages.order.orderInfo', compact('orderlist'));
     }
 
     //* Order Passing
 
-    public function passOder($id){
-        Order::find($id)->delete() ;
-        return back()->with('success' , 'Order Passed Successfully!');
+    public function passOder($id)
+    {
+        // Order::find($id)->delete() ;
+        $passingOrder = Order::find($id);
+
+        if ($passingOrder->status !== 'completed') {
+            $passingOrder->status = 'completed';
+            $passingOrder->save();
+        }
+        return back()->with('success', 'Order Passed Successfully!');
     }
 
     //* Delet order
-    public function deletOder($id){
+    public function deletOder($id)
+    {
         Order::find($id)->delete();
         return back()->with('success', 'Order deleted Successfully!');
     }
-
 }

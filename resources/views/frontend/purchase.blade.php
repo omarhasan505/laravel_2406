@@ -24,7 +24,7 @@
                         <div class="col-lg-8 order-0 order-lg-1 slider-for">
 
                             <div class="img">
-                                <img class="img-fluid" src="{{ asset('storage/productImage/' . $image->image) }}" alt="">
+                                <img class="img-fluid example" src="{{ asset('storage/productImage/' . $image->image) }}" alt="">
                             </div>
 
 
@@ -553,6 +553,8 @@
 
 @endsection
 @push('frontend_js')
+
+ <script src="{{ asset('frontend/assets/js/zoomsl.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

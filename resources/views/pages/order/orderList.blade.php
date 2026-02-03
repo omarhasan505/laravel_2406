@@ -38,8 +38,12 @@
                         <td class=" {{ $list->status == 'completed' ? 'text-success text-uppercase' : 'text-primary' }}"> <strong>{{ $list->status }}</strong></td>
 
                         @if ($list->status == 'completed')
-                            <td class=" d-flex justify-content-center align-items-center ">
-                                <iconify-icon icon="el:ok" width="30" height="30" class="mt-2 text-success" ></iconify-icon>
+                            <td class=" d-flex justify-content-between align-items-center ">
+                                <iconify-icon icon="el:ok" width="24" height="24" class="p-2 mx-1 text-success" ></iconify-icon>
+                                 <a href="{{ route('orders.order.delet', $list->id) }}" class="p-2 mx-1 d-flex align-items-center">
+                                <iconify-icon icon="maki:cross" width="24" height="24"
+                                    class="text-danger"></iconify-icon>
+                            </a>
                             </td>
                         @else
 

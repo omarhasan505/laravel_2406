@@ -26,11 +26,13 @@ class AddToCartController extends Controller
     }
 
     //* Add  to Cart
-    public function addToCart($id)
+    public function addToCart(Request $request , $id)
     {
+        $quantity = max(1, (int) $request->query('quantity', 1));
 
         $product = Product::with('images')->find($id);
         $cart = session('cart', []);
+
 
         if (isset($cart[$id])) {
             $cart[$id]['quantity'] += 1;
@@ -42,7 +44,7 @@ class AddToCartController extends Controller
                 'description' => $product->description,
                 'price' => $product->price,
                 'image' => $product->images[0]->image,
-                'quantity' => 1,
+                'quantity' => $quantity,
             ];
         }
 

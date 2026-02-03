@@ -23,6 +23,7 @@ class FrontendController extends Controller
 
     $categories = Category::with('products')->get();
     $featuredProducts = Product::with('images')->find($id);
+    $cart = session('cart');
 
     return view('frontend.purchase' , compact('featuredProducts', 'categories') );
 

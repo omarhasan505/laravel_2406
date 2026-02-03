@@ -349,7 +349,9 @@
                         <div class="cart {{ $category->title }}">
                            <a href="#">
                               <div class="imgBox">
+                                 <a href="{{ route('frontend.purchase' , $product->id) }}">
                                  <img class="img-fluid" src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+                                 </a>
                               </div>
                               <div class="details">
                                  <a href="#">{{ $product->title }}</a>

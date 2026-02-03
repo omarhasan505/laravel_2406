@@ -40,7 +40,7 @@
                                 {{ $featuredProducts->title }}
                             </h4>
                             <span>
-                                {{ $featuredProducts->stock }}
+                                {{ $featuredProducts->in_stock==1 ? 'in stock' : 'out of stock' }}
                             </span>
                         </div>
                         <div class="review d-flex align-items-center">
@@ -137,13 +137,13 @@
                                 <button class="increment">
                                     <iconify-icon icon="ic:twotone-plus" width="24" height="24"></iconify-icon>
                                 </button>
-                                <input class="product_counter" type="text" value="1">
+                                <input class="product_counter" type="text" id="qty_{{ $featuredProducts->id }}" value="1" min="1">
                                 <button class="decrement">
                                     <iconify-icon icon="ic:sharp-minus" width="24" height="24"></iconify-icon>
                                 </button>
                             </div>
                             <div class="add_cart col-xl-7 d-flex align-items-center justify-content-center">
-                                <a href="{{ route('frontend.addToCart' , $featuredProducts->id) }}">
+                                <a class="add-to-cart" href="{{ route('frontend.addToCart' , $featuredProducts->id) }}" data-id="{{ $featuredProducts->id }}">
 
                                     Add to Cart
                                     <span>
@@ -569,4 +569,25 @@
             });
         </script>
     @endif
+
+<script>
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const productId = this.dataset.id;
+
+        // ✅ get the correct input for THIS product
+        const qtyInput = document.getElementById('qty_' + productId);
+
+        const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+
+        // redirect with quantity
+        window.location.href = this.href + '?quantity=' + quantity;
+    });
+});
+</script>
+
+
+
 @endpush

@@ -6,8 +6,8 @@
             <form action="{{ route('frontend.placeOrder') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row justify-content-between">
-                    <div class="col-xl-7 billiing_table ">
-                        <table>
+                    <div class="col-xl-7 billiing_table border overflow-scroll">
+                        <table class="table-responsive  ">
                             <thead>
                                 <tr>
                                     <th>

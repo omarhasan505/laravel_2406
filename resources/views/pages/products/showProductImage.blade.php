@@ -8,7 +8,7 @@
      <h4 class="mb-0">All Product List</h4>
      <a href="{{ route('products.product.store') }}" class="btn btn-primary p-2">Store Product</a>
     </div>
-    <div class="card-body text-center">
+    <div class="card-body text-center overflow-scroll">
         <table class="table table-bordered table-striped table-responsive ">
             <tr>
                 <th>

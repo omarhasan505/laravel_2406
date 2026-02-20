@@ -33,10 +33,10 @@
 <body>
 
     <!-- header part -->
-    <header id="header">
+    <header id="header" class="sticky-top">
         <div class="container">
             <div class="row">
-                <div class="col-xl-6">
+                <div class="col-xl-6 location">
                     <div class="heading_one_content">
                         <span>
                             <iconify-icon icon="mingcute:location-line" width="24" height="24"></iconify-icon>
@@ -73,7 +73,7 @@
 
 
     <!-- navbar part_1 -->
-    <section id="navbar">
+    <section id="navbar" >
         <div class="container">
             <div class="row ">
                 <div class="col-xl-3">
@@ -218,7 +218,7 @@
 
 
     <!-- navbar part_2 -->
-    <nav id="navBar" class="d-none d-xl-block">
+    <nav id="navBar" class="d-none d-xl-block sticky-top">
         <div class="container">
             <div class="row">
                 <div class="dropdown first_button">
@@ -429,17 +429,17 @@
 
             @forelse (session('cart' , []) as $key => $item)
                 <div class="row mb-2 shadow-sm">
-                    <div class="col-xl-3">
+                    <div class="col-3">
                         <img class="img-fluid" src="{{ asset('storage/productimage/' . $item['image']) }}"
                             alt="">
                     </div>
-                    <div class="col-xl-7">
+                    <div class="col-7">
                         <strong>{{ $item['title'] }}</strong>
                         <p class="mb-0">Qty:&nbsp;{{ $item['quantity'] }}</p>
                         <p class="mb-0">Price:&nbsp;{{ $item['price'] }} * {{ $item['quantity'] }} =
                             {{ $item['price'] * $item['quantity'] }}tk</p>
                     </div>
-                    <div class="col-xl-2 d-flex justify-content-center align-items-center ">
+                    <div class="col-2 d-flex justify-content-center align-items-center ">
                         <a href="{{ route('frontend.deletCart', $key) }}"
                             class="d-flex justify-content-center align-items-center"><iconify-icon
                                 icon="emojione-v1:cross-mark" width="28" height="28"></iconify-icon></a>

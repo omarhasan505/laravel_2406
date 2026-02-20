@@ -17,7 +17,7 @@
                         <a class="btn btn-primary btn-sm p-2" href="{{ route('products.product.list') }}">All Product List</a>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body ">
                         <form action="{{ route('products.product.list.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">

@@ -7,7 +7,7 @@
             <h4 class="mb-0">All Category List</h4>
             <a href="{{ route('category.select.category') }}" class="btn btn-primary p-2">Add new category</a>
         </div>
-        <div class="card-body text-center">
+        <div class="card-body text-center  overflow-scroll">
             <table class="table table-responsive table-bordered table-striped table-hover">
                 <tr>
                     <th>id</th>

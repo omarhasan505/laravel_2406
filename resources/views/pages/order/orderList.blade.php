@@ -5,7 +5,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             <h4 class="mb-0">All Order List</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body overflow-scroll">
             <table class="table table-bordered table-responsive table-hover table-striped ">
 
                 <tr>

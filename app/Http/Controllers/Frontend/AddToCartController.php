@@ -51,7 +51,18 @@ class AddToCartController extends Controller
 
         session()->put('cart', $cart);
 
-        return back()->with('success', 'add to cart successfully!');
+        $totalQty = 0;
+        foreach($cart as $item){
+            $totalQty += $item['quantity'];
+        }
+
+        // return back()->with('success', 'add to cart successfully!');
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Product Added to Cart Successfully!',
+            'totalQty' => $totalQty
+        ]);
     }
 
     //* Delet Cart

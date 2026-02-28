@@ -396,7 +396,7 @@
 
     @yield('frontend_content')
 
-    @php
+    {{-- @php
         $totalQty = 0;
     @endphp
 
@@ -405,14 +405,14 @@
             $totalQty = $totalQty + $productQty['quantity'];
 
         @endphp
-    @endforeach
+    @endforeach --}}
 
     <button type="button" class="btn btn-primary position-relative add_to_icon" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <iconify-icon icon="iconoir:add-to-cart" width="35" height="35"></iconify-icon>
 
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            {{ $totalQty }}
+        <span id="cart_count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            {{-- {{ $totalQty }} --}}0
             <span class="visually-hidden">unread messages</span>
         </span>
     </button>

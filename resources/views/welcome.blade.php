@@ -199,13 +199,13 @@
 
                 @foreach ($categories as $category)
                     @forelse ($category->products as $product)
-
                         <div class="single_product_slide col-xl-3 filter {{ $category->title }} All">
                             <div class="img ">
-                                <a href="{{ route('frontend.purchase' , $product->id) }}">
+                                <a href="{{ route('frontend.purchase', $product->id) }}">
 
                                     <img class="img-fluid"
-                                        src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
+                                        src="{{ asset('storage/productImage/' . $product->images[0]->image) }}"
+                                        alt="">
 
                                 </a>
                             </div>
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                                 <div class="bag_cart">
-                                    <a href="{{ route('frontend.addToCart', $product->id) }}">
+                                    <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
                                         <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
                                             height="24"></iconify-icon>
                                     </a>
@@ -376,7 +376,7 @@
                                 </div>
                             </div>
                             <div class="bag_cart">
-                                <a href="{{ route('frontend.addToCart', $product->id) }}">
+                                <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
                                     <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
                                         height="24"></iconify-icon>
                                 </a>
@@ -650,5 +650,33 @@
             });
         </script>
     @endif
+
+    <script>
+        document.querySelectorAll('.add_to_cart').forEach(link => {
+
+            link.addEventListener('click', function(e) {
+
+                e.preventDefault();
+
+                let url = this.getAttribute('href');
+
+                let xhr = new XMLHttpRequest();
+
+                xhr.onload = function() {
+                    if (xhr.status == 200) {
+                        let response = JSON.parse(xhr.responseText);
+                        document.querySelector('#cart_count').innerText = response.totalQty;
+                        alert(response.message);
+                    }
+                }
+                xhr.open('GET', url, true);
+                xhr.send();
+
+            })
+
+        });
+    </script>
+
+
 
 @endpush

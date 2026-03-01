@@ -666,6 +666,37 @@
                     if (xhr.status == 200) {
                         let response = JSON.parse(xhr.responseText);
                         document.querySelector('#cart_count').innerText = response.totalQty;
+
+                        let cart_body = document.querySelector('#cart_items');
+                        let html = "";
+
+                        for (let key in response.cart) {
+                            let item = response.cart[key];
+                            html += `
+                <div class="row mb-2 shadow-sm">
+                    <div class="col-3">
+                        <img class="img-fluid" src="/storage/productimage/${item.image}">
+                    </div>
+
+                    <div class="col-7">
+                        <strong>${item.title}</strong>
+                        <p class="mb-0">Qty: ${item.quantity}</p>
+                        <p class="mb-0">
+                            Price: ${item.price} * ${item.quantity} =
+                            ${item.price * item.quantity} tk
+                        </p>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center align-items-center">
+                        <a href="#" >
+                            <iconify-icon icon="emojione-v1:cross-mark" width="28" height="28"></iconify-icon>
+                        </a>
+                    </div>
+                 </div>
+                         `;
+
+                        }
+                        cart_body.innerHTML = html;
+
                         alert(response.message);
                     }
                 }

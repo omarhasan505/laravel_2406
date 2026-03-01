@@ -61,7 +61,8 @@ class AddToCartController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Product Added to Cart Successfully!',
-            'totalQty' => $totalQty
+            'totalQty' => $totalQty,
+            'cart' => $cart
         ]);
     }
 

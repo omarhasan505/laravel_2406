@@ -73,7 +73,7 @@
 
 
     <!-- navbar part_1 -->
-    <section id="navbar" >
+    <section id="navbar">
         <div class="container">
             <div class="row ">
                 <div class="col-xl-3">
@@ -91,15 +91,15 @@
                     </form>
                 </div>
                 @php
-                    $subtotal =0;
+                    $subtotal = 0;
                     $subqty = 0;
                 @endphp
-                  @foreach(session('cart' , []) as  $value)
-                  @php
-                    $subtotal = $subtotal + $value['quantity']*$value['price'];
-                    $subqty = $subqty + $value['quantity'];
-                  @endphp
-                   @endforeach
+                @foreach (session('cart', []) as $value)
+                    @php
+                        $subtotal = $subtotal + $value['quantity'] * $value['price'];
+                        $subqty = $subqty + $value['quantity'];
+                    @endphp
+                @endforeach
                 <div class="d-none d-xl-flex col-xl-3 icon_contain">
                     <div class="icons">
                         <div>
@@ -122,7 +122,7 @@
                         </p>
 
                         <b>
-                           {{ $subtotal }}Tk
+                            {{ $subtotal }}Tk
                         </b>
 
                     </div>
@@ -232,11 +232,12 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         @forelse ($categories as $category)
-
-                        <li><a class="dropdown-item" href="{{ route('frontend.shopmore') }}">{{ $category->title }}</a></li>
+                            <li><a class="dropdown-item"
+                                    href="{{ route('frontend.shopmore') }}">{{ $category->title }}</a></li>
                         @empty
-                        <li><p class="text-danger mb-0">No Category found!</p></li>
-
+                            <li>
+                                <p class="text-danger mb-0">No Category found!</p>
+                            </li>
                         @endforelse
                     </ul>
                 </div>
@@ -363,8 +364,8 @@
                 </a>
             </div>
             <div class="col-2">
-                <a href="#" data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
                     <span>
                         <iconify-icon icon="famicons:cart" width="24" height="24"></iconify-icon>
                     </span>
@@ -427,7 +428,7 @@
         </div>
         <div class="offcanvas-body " id="cart_items">
 
-            @forelse (session('cart' , []) as $key => $item)
+            {{-- @forelse (session('cart' , []) as $key => $item)
                 <div class="row mb-2 shadow-sm">
                     <div class="col-3">
                         <img class="img-fluid" src="{{ asset('storage/productimage/' . $item['image']) }}"
@@ -445,20 +446,30 @@
                                 icon="emojione-v1:cross-mark" width="28" height="28"></iconify-icon></a>
                     </div>
                 </div>
-            @empty
-            @endforelse
-        </div>
-        @if (isset( $item))
 
-        <div class="d-flex justify-content-center align-items-center my-3 ">
-            <a href="{{ route('frontend.checkoutCart') }}" class="btn-outline-hover"
-                style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
+            @empty
+            @endforelse --}}
+
+                @php
+                    $cart = session('cart' , []);
+                @endphp
+
+                @include('frontend.partials.cart_items' , ['cart' => $cart])
+
+
         </div>
+
+        @if (count($cart)> 0)
+            <div class="d-flex justify-content-center align-items-center my-3 ">
+                <a href="{{ route('frontend.checkoutCart') }}" class="btn-outline-hover"
+                    style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
+            </div>
         @else
-        <div class="d-flex justify-content-center align-items-center my-3 ">
-            <a href="" class="bg-danger"
-                style="width: 95%;  padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Nothing to checkout</a>
-        </div>
+            <div class="d-flex justify-content-center align-items-center my-3 ">
+                <a href="" class="bg-danger"
+                    style="width: 95%;  padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Nothing
+                    to checkout</a>
+            </div>
         @endif
 
     </div>

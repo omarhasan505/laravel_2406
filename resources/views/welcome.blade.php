@@ -651,7 +651,7 @@
         </script>
     @endif
 
-    <script>
+    {{-- <script>
         document.querySelectorAll('.add_to_cart').forEach(link => {
 
             link.addEventListener('click', function(e) {
@@ -706,7 +706,43 @@
             })
 
         });
-    </script>
+    </script> --}}
+
+    <script>
+function addToCart(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/add-to-cart/" + id, true);
+
+    xhr.onload = function(e) {
+        e.preventDefault();
+        if( xhr.status === 200){
+            var data = JSON.parse(xhr.responseText);
+
+            document.getElementById("cart_items").innerHTML = data.cart_html;
+            document.getElementById("cart_count").innerText = data.totalQty;
+            alert(data.message);
+        }
+    }
+
+    xhr.send();
+}
+
+function deletCart(key) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/deletCart/" + key, true);
+
+    xhr.onreadystatechange = function() {
+        if(xhr.readyState === 4 && xhr.status === 200){
+            var data = JSON.parse(xhr.responseText);
+
+            document.getElementById("cart_items").innerHTML = data.cart_html;
+            document.getElementById("cart_count").innerText = data.totalQty;
+        }
+    }
+
+    xhr.send();
+}
+</script>
 
 
 

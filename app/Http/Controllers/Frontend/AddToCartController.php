@@ -51,10 +51,16 @@ class AddToCartController extends Controller
 
         session()->put('cart', $cart);
 
-        $totalQty = 0;
-        foreach($cart as $item){
-            $totalQty += $item['quantity'];
-        }
+        $totalQty = array_sum(array_column($cart, 'quantity'));
+
+        // Render partial HTML
+        $cart_html = view('frontend.partials.cart_items', compact('cart'))->render();
+
+
+        // $totalQty = 0;
+        // foreach($cart as $item){
+        //     $totalQty += $item['quantity'];
+        // }
 
         // return back()->with('success', 'add to cart successfully!');
 
@@ -68,19 +74,48 @@ class AddToCartController extends Controller
 
     //* Delet Cart
 
-    public function deletCart($id)
+    // public function deletCart($id)
+    // {
+
+    //     $cart = session('cart', []);
+
+
+    //     if (isset($cart[$id])) {
+
+    //         unset($cart[$id]);
+    //         session()->put('cart', $cart);
+    //     }
+
+    //     $totalQty = array_sum(array_column($cart, 'quantity'));
+
+    //     $cart_html = view('frontend.partials.cart_items', compact('cart'))->render();
+
+    //     return response()->json([
+    //         'cart_html' => $cart_html,
+    //         'totalQty' => $totalQty
+    //     ]);
+
+    //     // return back()->with('success', 'Item removed from cart!');
+    // }
+
+    public function deletCart($key)
     {
+        $cart = session()->get('cart', []);
 
-        $cart = session('cart', []);
-
-
-        if (isset($cart[$id])) {
-
-            unset($cart[$id]);
-            session()->put('cart', $cart);
+        if (isset($cart[$key])) {
+            unset($cart[$key]);
         }
 
-        return back()->with('success', 'Item removed from cart!');
+        session()->put('cart', $cart);
+
+        $totalQty = array_sum(array_column($cart, 'quantity'));
+
+        $cart_html = view('frontend.partials.cart_items', compact('cart'))->render();
+
+        return response()->json([
+            'cart_html' => $cart_html,
+            'totalQty' => $totalQty
+        ]);
     }
 
     //* Checkout Cart

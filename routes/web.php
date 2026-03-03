@@ -136,7 +136,7 @@ Route::prefix('/dashboard/order')->name('orders.')->middleware(['auth' , 'verifi
 Route::name('frontend.')->group(function(){
     Route::get('/' , [FrontendController::class, 'index'])->name('featured');
     Route::get('/addToCart/{id}' , [AddToCartController::class, 'addToCart'])->name('addToCart');
-    Route::get('/deletCart/{id}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
+    Route::get('/deletCart/{key}' , [AddToCartController::class, 'deletCart'])->name('deletCart');
     Route::get('/checkoutCart' , [AddToCartController::class, 'checkoutCart'])->name('checkoutCart');
     Route::post('/placeOrder' , [AddToCartController::class, 'placeOrder'])->name('placeOrder');
     Route::get('/shopmore' , [AddToCartController::class, 'shopmore'])->name('shopmore');

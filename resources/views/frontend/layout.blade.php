@@ -318,7 +318,16 @@
     </nav>
     <!-- navbar part_2 end -->
 
-
+    <div id="cart-alert" class="alert alert-success" role="alert"
+        style="display: none;
+    position:fixed;
+    top:70px;
+    right:40px;
+    min-width:250px;
+    z-index: 10000;
+     ">
+        Product added to cart successfully!
+    </div>
 
     <!-- mobile_footer -->
     <section id="mobile_footer" class="d-xl-none">
@@ -450,16 +459,16 @@
             @empty
             @endforelse --}}
 
-                @php
-                    $cart = session('cart' , []);
-                @endphp
+            @php
+                $cart = session('cart', []);
+            @endphp
 
-                @include('frontend.partials.cart_items' , ['cart' => $cart])
+            @include('frontend.partials.cart_items', ['cart' => $cart])
 
 
         </div>
 
-        @if (count($cart)> 0)
+        @if (count($cart) > 0)
             <div class="d-flex justify-content-center align-items-center my-3 ">
                 <a href="{{ route('frontend.checkoutCart') }}" class="btn-outline-hover"
                     style="width: 95%; background:#00b207; padding:10px 0; color:white; display:flex; justify-content:center; align-items:center; border-radius:10px">Checkout</a>
@@ -737,6 +746,24 @@
     <script src="{{ asset('frontend/assets/js/app.js') }}"></script>
 
     <script src="{{ asset('frontend/assets/js/zoomsl.min.js') }}"></script>
+
+    <script>
+          function deletCart(key) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/deletCart/" + key, true);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+
+                    document.getElementById("cart_items").innerHTML = data.cart_html;
+                    document.getElementById("cart_count").innerText = data.totalQty;
+                }
+            }
+
+            xhr.send();
+        }
+    </script>
 
 </body>
 

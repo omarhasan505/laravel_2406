@@ -239,7 +239,11 @@
                                     </div>
                                 </div>
                                 <div class="bag_cart">
-                                    <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
+                                    {{-- <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
+                                        <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
+                                            height="24"></iconify-icon>
+                                    </a> --}}
+                                    <a href="#" onclick="addToCart('{{ $product->id }}'); return false" class="add_to_cart">
                                         <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
                                             height="24"></iconify-icon>
                                     </a>
@@ -376,7 +380,11 @@
                                 </div>
                             </div>
                             <div class="bag_cart">
-                                <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
+                                {{-- <a href="{{ route('frontend.addToCart', $product->id) }}" class="add_to_cart">
+                                    <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
+                                        height="24"></iconify-icon>
+                                </a> --}}
+                                <a href="#" onclick="addToCart('{{ $product->id }}'); return false" class="add_to_cart">
                                     <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
                                         height="24"></iconify-icon>
                                 </a>
@@ -711,20 +719,33 @@
     <script>
 function addToCart(id) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/add-to-cart/" + id, true);
+    xhr.open("GET", "/addToCart/" + id, true);
 
-    xhr.onload = function(e) {
-        e.preventDefault();
+    xhr.onload = function() {
+
         if( xhr.status === 200){
             var data = JSON.parse(xhr.responseText);
 
             document.getElementById("cart_items").innerHTML = data.cart_html;
             document.getElementById("cart_count").innerText = data.totalQty;
-            alert(data.message);
+            // alert(data.message);
+            showAlert(data.message);
         }
     }
 
     xhr.send();
+}
+
+function showAlert(message){
+    let alert = document.getElementById('cart-alert');
+
+    alert.innerText = message;
+
+    alert.style.display = "block";
+
+    setTimeout( function() {
+        alert.style.display = "none";
+    }, 1000);
 }
 
 function deletCart(key) {

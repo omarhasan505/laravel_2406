@@ -35,7 +35,7 @@ class AddToCartController extends Controller
 
 
         if (isset($cart[$id])) {
-            $cart[$id]['quantity'] += 1;
+            $cart[$id]['quantity'] += $quantity;
             session()->put('cart', $cart);
         } else {
 
@@ -68,7 +68,8 @@ class AddToCartController extends Controller
             'status' => 'success',
             'message' => 'Product Added to Cart Successfully!',
             'totalQty' => $totalQty,
-            'cart' => $cart
+            'cart' => $cart,
+            'cart_html' => $cart_html
         ]);
     }
 

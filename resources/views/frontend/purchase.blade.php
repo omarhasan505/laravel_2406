@@ -2,7 +2,7 @@
 
 @section('frontend_content')
 
- <!-- product details -->
+    <!-- product details -->
     <section id="product_details">
         <div class="container">
             <div class="row">
@@ -11,12 +11,11 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4 order-1 order-lg-0 slider-nav">
 
-                            @foreach ($featuredProducts->images as $image )
-
-
-                            <div class="img">
-                                <img class="img-fluid" src="{{ asset('storage/productImage/' . $image->image) }}" alt="">
-                            </div>
+                            @foreach ($featuredProducts->images as $image)
+                                <div class="img">
+                                    <img class="img-fluid" src="{{ asset('storage/productImage/' . $image->image) }}"
+                                        alt="">
+                                </div>
                             @endforeach
 
                         </div>
@@ -24,7 +23,8 @@
                         <div class="col-lg-8 order-0 order-lg-1 slider-for">
 
                             <div class="img">
-                                <img class="img-fluid example" src="{{ asset('storage/productImage/' . $image->image) }}" alt="">
+                                <img class="img-fluid example" src="{{ asset('storage/productImage/' . $image->image) }}"
+                                    alt="">
                             </div>
 
 
@@ -40,7 +40,7 @@
                                 {{ $featuredProducts->title }}
                             </h4>
                             <span>
-                                {{ $featuredProducts->in_stock==1 ? 'in stock' : 'out of stock' }}
+                                {{ $featuredProducts->in_stock == 1 ? 'in stock' : 'out of stock' }}
                             </span>
                         </div>
                         <div class="review d-flex align-items-center">
@@ -72,13 +72,13 @@
                         </div>
                         <div class="d-flex align-items-center price_tag">
                             <del>
-                               {{ $featuredProducts->price }}Tk
+                                {{ $featuredProducts->price }}Tk
                             </del>
                             &nbsp;
                             <b>
 
                                 <span class="discounted_price">
-                                   {{ $featuredProducts->discount_price }}
+                                    {{ $featuredProducts->discount_price }}
                                 </span>
                             </b>
                             <span class="discount">
@@ -114,7 +114,8 @@
                                 </span>
                                 <span>
                                     <a href="#">
-                                        <iconify-icon icon="nrk:some-pinterest" width="24" height="24"></iconify-icon>
+                                        <iconify-icon icon="nrk:some-pinterest" width="24"
+                                            height="24"></iconify-icon>
                                     </a>
                                 </span>
                                 <span>
@@ -137,13 +138,23 @@
                                 <button class="increment">
                                     <iconify-icon icon="ic:twotone-plus" width="24" height="24"></iconify-icon>
                                 </button>
-                                <input class="product_counter" type="text" id="qty_{{ $featuredProducts->id }}" value="1" min="1">
+                                <input class="product_counter" type="text" id="qty_{{ $featuredProducts->id }}"
+                                    value="1" min="1">
                                 <button class="decrement">
                                     <iconify-icon icon="ic:sharp-minus" width="24" height="24"></iconify-icon>
                                 </button>
                             </div>
                             <div class="add_cart col-xl-7 d-flex align-items-center justify-content-center">
-                                <a class="add-to-cart" href="{{ route('frontend.addToCart' , $featuredProducts->id) }}" data-id="{{ $featuredProducts->id }}">
+                                {{-- <a class="add-to-cart" href="{{ route('frontend.addToCart' , $featuredProducts->id) }}" data-id="{{ $featuredProducts->id }}">
+
+                                    Add to Cart
+                                    <span>
+                                        <iconify-icon icon="akar-icons:shopping-bag" width="24"
+                                            height="24"></iconify-icon>
+                                    </span>
+                                </a> --}}
+                                <a class="add-to-cart" href="#" onclick="addToCart('{{ $featuredProducts->id }}')"
+                                    data-id="{{ $featuredProducts->id }}">
 
                                     Add to Cart
                                     <span>
@@ -185,8 +196,8 @@
                 </div>
             </div>
             <!-- <span class="cross_icon">
-                <iconify-icon icon="system-uicons:cross" width="32" height="32"></iconify-icon>
-            </span> -->
+                        <iconify-icon icon="system-uicons:cross" width="32" height="32"></iconify-icon>
+                    </span> -->
         </div>
     </section>
     <!-- product details -->
@@ -249,9 +260,11 @@
                         </div>
                         <div class="col-xl-5">
                             <div class="description_video">
-                                <img class="img-fluid d-block" src="{{ asset('frontend/assets/images/description/Image.png') }}" alt="">
+                                <img class="img-fluid d-block"
+                                    src="{{ asset('frontend/assets/images/description/Image.png') }}" alt="">
                                 <span>
-                                    <iconify-icon icon="heroicons:play-16-solid" width="16" height="16"></iconify-icon>
+                                    <iconify-icon icon="heroicons:play-16-solid" width="16"
+                                        height="16"></iconify-icon>
                                 </span>
                             </div>
                             <div class="more">
@@ -275,7 +288,8 @@
                                     <div class="col-xl-6 p-0 row">
                                         <div class="col-xl-2">
                                             <span>
-                                                <iconify-icon icon="bi:leaf" width="24" height="24"></iconify-icon>
+                                                <iconify-icon icon="bi:leaf" width="24"
+                                                    height="24"></iconify-icon>
                                             </span>
                                         </div>
                                         <div class="col-xl-10 p-0">
@@ -351,9 +365,11 @@
                         </div>
                         <div class="col-xl-5">
                             <div class="description_video">
-                                <img class="img-fluid d-block" src="./assets/images/description/Image.png" alt="">
+                                <img class="img-fluid d-block" src="./assets/images/description/Image.png"
+                                    alt="">
                                 <span>
-                                    <iconify-icon icon="heroicons:play-16-solid" width="16" height="16"></iconify-icon>
+                                    <iconify-icon icon="heroicons:play-16-solid" width="16"
+                                        height="16"></iconify-icon>
                                 </span>
                             </div>
                             <div class="more">
@@ -377,7 +393,8 @@
                                     <div class="col-xl-6 p-0 row">
                                         <div class="col-xl-2">
                                             <span>
-                                                <iconify-icon icon="bi:leaf" width="24" height="24"></iconify-icon>
+                                                <iconify-icon icon="bi:leaf" width="24"
+                                                    height="24"></iconify-icon>
                                             </span>
                                         </div>
                                         <div class="col-xl-10 p-0">
@@ -403,16 +420,16 @@
 
 
     <!-- related product -->
-        <section id="featured_product">
-            <div class="container">
-                <div class="heading">
-                    <h4>
-                      Related Product
-                    </h4>
-                </div>
-                <div class="product_slider">
+    <section id="featured_product">
+        <div class="container">
+            <div class="heading">
+                <h4>
+                    Related Product
+                </h4>
+            </div>
+            <div class="product_slider">
 
-                    {{-- <div class="single_product_slide">
+                {{-- <div class="single_product_slide">
                         <div class="img ">
                             <img class="img-fluid" src="./assets/images/related product/green apple.png" alt="">
                         </div>
@@ -470,95 +487,98 @@
                         </div>
                     </div> --}}
 
-                     @forelse ($categories as $category)
-                     @foreach ($category->products as $product )
-                    <div class="single_product_slide">
-                        <div class="img ">
-                            {{-- @foreach ($product->images as $item) --}}
+                @forelse ($categories as $category)
+                    @foreach ($category->products as $product)
+                        <div class="single_product_slide">
+                            <div class="img ">
+                                {{-- @foreach ($product->images as $item) --}}
 
-                            <img class="img-fluid"
-                                src="{{ asset('storage/productImage/' . $product->images[0]->image) }}" alt="">
-                            {{-- @endforeach --}}
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="details">
-                                <h4>
-                                    {{ $product->title }}
-                                </h4>
-                                <b>
-                                    {{ $product->discount_price }}
-                                </b>
-                                <del>
-                                    {{ $product->price }}
-                                </del>
-                                <div class="star_icon d-flex">
-                                    <span><iconify-icon icon="line-md:star-filled" width="12"
-                                            height="12"></iconify-icon>
-                                    </span>
-                                    <span><iconify-icon icon="line-md:star-filled" width="12"
-                                            height="12"></iconify-icon>
-                                    </span>
-                                    <span><iconify-icon icon="line-md:star-filled" width="12"
-                                            height="12"></iconify-icon>
-                                    </span>
-                                    <span><iconify-icon icon="line-md:star-filled" width="12"
-                                            height="12"></iconify-icon>
-                                    </span>
-                                    <span><iconify-icon icon="line-md:star-filled" width="12"
-                                            height="12"></iconify-icon>
-                                    </span>
+                                <img class="img-fluid"
+                                    src="{{ asset('storage/productImage/' . $product->images[0]->image) }}"
+                                    alt="">
+                                {{-- @endforeach --}}
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="details">
+                                    <h4>
+                                        {{ $product->title }}
+                                    </h4>
+                                    <b>
+                                        {{ $product->discount_price }}
+                                    </b>
+                                    <del>
+                                        {{ $product->price }}
+                                    </del>
+                                    <div class="star_icon d-flex">
+                                        <span><iconify-icon icon="line-md:star-filled" width="12"
+                                                height="12"></iconify-icon>
+                                        </span>
+                                        <span><iconify-icon icon="line-md:star-filled" width="12"
+                                                height="12"></iconify-icon>
+                                        </span>
+                                        <span><iconify-icon icon="line-md:star-filled" width="12"
+                                                height="12"></iconify-icon>
+                                        </span>
+                                        <span><iconify-icon icon="line-md:star-filled" width="12"
+                                                height="12"></iconify-icon>
+                                        </span>
+                                        <span><iconify-icon icon="line-md:star-filled" width="12"
+                                                height="12"></iconify-icon>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="bag_cart">
+                                    <a href="{{ route('frontend.addToCart', $product->id) }}">
+                                        <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
+                                            height="24"></iconify-icon>
+                                    </a>
                                 </div>
                             </div>
-                            <div class="bag_cart">
-                                <a href="{{ route('frontend.addToCart', $product->id) }}">
-                                    <iconify-icon icon="heroicons-outline:shopping-bag" width="24"
-                                        height="24"></iconify-icon>
-                                </a>
+                            <div class="offer">
+                                <p>
+                                    Sale 50%
+                                </p>
+                            </div>
+                            <div class="other_icons">
+                                <ul>
+                                    <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                            href="#">
+                                            <span>
+                                                <iconify-icon icon="ph:heart" width="24"
+                                                    height="24"></iconify-icon>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
+                                            href="#">
+                                            <span>
+                                                <iconify-icon icon="nimbus:eye" width="24"
+                                                    height="24"></iconify-icon>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="offer">
-                            <p>
-                                Sale 50%
-                            </p>
-                        </div>
-                        <div class="other_icons">
-                            <ul>
-                                <li><a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
-                                        href="#">
-                                        <span>
-                                            <iconify-icon icon="ph:heart" width="24" height="24"></iconify-icon>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left"
-                                        href="#">
-                                        <span>
-                                            <iconify-icon icon="nimbus:eye" width="24" height="24"></iconify-icon>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     @endforeach
                 @empty
                 @endforelse
 
 
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
     <!-- related product end -->
 
 @endsection
 @push('frontend_js')
 
- <script src="{{ asset('frontend/assets/js/zoomsl.min.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/zoomsl.min.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  @if (session('success'))
+    @if (session('success'))
         <script>
             Swal.fire({
                 icon: 'success',
@@ -570,23 +590,77 @@
         </script>
     @endif
 
-<script>
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', function (e) {
-        e.preventDefault();
+    {{-- <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
 
-        const productId = this.dataset.id;
+                const productId = this.dataset.id;
 
-        // ✅ get the correct input for THIS product
-        const qtyInput = document.getElementById('qty_' + productId);
+                // ✅ get the correct input for THIS product
+                const qtyInput = document.getElementById('qty_' + productId);
 
-        const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+                const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
 
-        // redirect with quantity
-        window.location.href = this.href + '?quantity=' + quantity;
-    });
-});
-</script>
+                // redirect with quantity
+                window.location.href = this.href + '?quantity=' + quantity;
+            });
+        });
+    </script> --}}
+
+    <script>
+        function addToCart(id) {
+
+            let qtyInput = document.getElementById('qty_' + id);
+            let quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/addToCart/" + id + "?quantity=" + quantity, true);
+
+            xhr.onload = function() {
+
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+
+                    document.getElementById("cart_items").innerHTML = data.cart_html;
+                    document.getElementById("cart_count").innerText = data.totalQty;
+                    // alert(data.message);
+                    showAlert(data.message);
+                }
+            }
+
+            xhr.send();
+        }
+
+        function showAlert(message) {
+            let alert = document.getElementById('cart-alert');
+
+            alert.innerText = message;
+
+            alert.style.display = "block";
+
+            setTimeout(function() {
+                alert.style.display = "none";
+            }, 1000);
+        }
+
+        function deletCart(key) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/deletCart/" + key, true);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+
+                    document.getElementById("cart_items").innerHTML = data.cart_html;
+                    document.getElementById("cart_count").innerText = data.totalQty;
+                }
+            }
+
+            xhr.send();
+        }
+    </script>
 
 
 
